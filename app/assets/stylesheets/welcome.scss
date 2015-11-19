@@ -40,15 +40,27 @@ body {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
+    background-image: image-url("tennis.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 
 }
 .site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
+  display: table-row;
+  height: 35%;
+}
+.site-wrapper-bottom {
+  display: table-row;
+  height: 35%;
+
 }
 .cover-container {
+  display: table-row;
   margin-right: auto;
   margin-left: auto;
+  background-color: rgba(65, 20, 165, 0.3);
+  width: 100%;
+
 }
 
 /* Padding for spacing */
