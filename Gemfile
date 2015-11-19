@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
-
-
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'autoprefixer-rails'
+gem 'react-rails', '~> 1.4.0'
+gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -35,6 +37,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 2.5'
+  gem 'chromedriver-helper'
+  gem 'capybara'
+  gem 'selenium-webdriver', '2.45.0'
 end
 
 group :development do
