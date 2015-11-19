@@ -1,0 +1,14 @@
+<h1> Index </h1>
+
+<div>
+  <table>
+    <% @events.each do |event|%>
+      <tr> <td> <h3> Event Name: <%= event.event_name %> </h3></td></tr>
+      <tr> <td> Sport: <%= event.sport %> </td></tr>
+      <tr> <td> Start: <%= event.start %> </td></tr>
+      <tr> <td> Date: <%= event.date %> </td></tr>
+      <tr> <td> Location: <%= event.location %> </td></tr>
+    <% end %>
+  </table>
+</div>
+
