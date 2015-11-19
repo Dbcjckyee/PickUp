@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'react-rails', '~> 1.4.0'
 gem 'bcrypt'

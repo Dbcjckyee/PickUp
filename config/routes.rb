@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-resources :user, :events
+resources :users, :events
   get '/about' => 'user#about'
 
   # Example resource route with sub-resources:
