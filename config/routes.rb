@@ -24,9 +24,16 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  
   get '/about' => 'user#about'
   get 'signup' => 'users#new'
   resources :users, :events
+
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  resources :sessions, only: [:new, :create, :destroy]
+
 
 
   # Example resource route with sub-resources:
