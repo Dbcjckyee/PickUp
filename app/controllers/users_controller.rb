@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			redirect_to '/users/new'
+			UserMailer.welcome_email(@user).deliver_now
 		else
 			redirect_to '/users/new'
 		end
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
 	def destroy
 	end
 
-	private	
+	private
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password)
 		end

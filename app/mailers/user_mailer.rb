@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user
-    @url = about_path
+    # @url = about_path
     mail(to: @user.email, subject: "Welcome to PickUp")
   end
 
