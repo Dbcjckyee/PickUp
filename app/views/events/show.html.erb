@@ -1,0 +1,19 @@
+<h1> Show </h1>
+
+<div>
+  <table>
+
+    <tr> <td><b>Event Info: </b></td></tr>
+    <tr> <td> Event Name: <%= @event.event_name %> </td></tr>
+    <tr> <td> Sport: <%= @event.sport %> </td></tr>
+    <tr> <td> Description: <%= @event.description %> </td></tr>
+    <tr> <td> Start: <%= @event.start %> </td></tr>
+    <%if %>
+      <tr> <td> End: <%= @event.end %> </td></tr>
+    <%end%>
+    <tr> <td> Date: <%= @event.date %> </td></tr>
+    <tr> <td> Participants: <%= @event.participants %> </td></tr>
+    <tr> <td> Location: <%= @event.location %> </td></tr>
+  </table>
+</div>
+
