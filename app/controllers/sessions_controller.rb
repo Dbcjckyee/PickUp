@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	before_action :current_user
 	def new
 	end
 
@@ -6,7 +7,7 @@ class SessionsController < ApplicationController
 		@user = User.find_by_email(params[:session][:email])
 		if @user && @user.authenticate(params[:session][:password])
 			session[:user_id] = @user.id
-			redirect_to events_path 
+			redirect_to events_path
 		else
 			redirect_to 'login'
 		end
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
-		redirect_to '/' 
+		redirect_to '/'
 	end
 
 end
