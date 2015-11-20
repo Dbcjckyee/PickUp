@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<div class='nav-bar'>
+			<% if current_user %>
+				<%= current_user.email %>
+				<%= link_to "Logout", logout_path, method: "delete" %>
+			<% else %>
+				<%= link_to "Login", 'login' %>
+				<%= link_to "Signup", 'signup' %>
+			<% end %>
+		</div>
+	</header>
 
 <%= yield %>
 

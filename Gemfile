@@ -24,6 +24,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,7 +44,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 2.5'
   gem 'chromedriver-helper'
   gem 'capybara'
-  gem 'selenium-webdriver', '2.45.0'
+  gem 'selenium-webdriver'
 end
 
 group :test do
