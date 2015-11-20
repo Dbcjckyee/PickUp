@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for creating an event, <%= @user.name %>.</h1>
+    <p>
+      Here are the following details for your event.<br>
+    </p>
+    <ul>
+      <li>Event name: <%=@event.name%></li>
+      <li>Event description: <%=@event.description%></li>
+      <li>Event start: <%=@event.start%></li>
+
+      </ul>
+    <p>Have a great day!</p>
+  </body>
+</html>
