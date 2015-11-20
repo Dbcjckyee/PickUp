@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'events#index'
-  # Example of regular route:
+
+  root 'welcome#index'
+  # Example of xregular route:
+
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
@@ -24,8 +26,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-
-  get '/about' => 'user#about'
+  get '/about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events
 
@@ -37,6 +38,9 @@ Rails.application.routes.draw do
 
 
 
+
+
+  get '/search' => 'search#search'
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
