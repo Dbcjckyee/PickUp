@@ -47,6 +47,12 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
+group :test do
+  gem 'faker'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
