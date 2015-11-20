@@ -5,6 +5,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
+		@events = @user.created_events
+
+		@event = Event.all
+
+		
 		if @user
 			render 'show'
 		else
@@ -57,8 +62,3 @@ class UsersController < ApplicationController
 		end
 
 end
-
-
-# class EventsController
-# 	before_action :require_user, only: [:index, :show]
-# end
