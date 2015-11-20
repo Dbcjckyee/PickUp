@@ -3,12 +3,16 @@ require 'spec_helper'
 
 
 describe EventsController do
+  before(:each) do
+    get(:user)
+  end
 
   describe '#index' do
     before(:each) do
-    get :index
-  end
-    it 'returns a status of 200' do
+      get :index
+    end
+    it 'returns a status of 200 if a user is logged in' do
+      post login_path, { :email => user.email, :password => user.password }
       expect(response.status).to eq(200)
     end
 
