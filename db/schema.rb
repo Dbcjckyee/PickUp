@@ -27,24 +27,25 @@ ActiveRecord::Schema.define(version: 20151119165210) do
     t.integer  "creator_id"
     t.string   "event_name"
     t.text     "description"
-    t.string   "sport"
-    t.datetime "start"
-    t.datetime "end"
+    t.string   "sport",        null: false
+    t.time     "start",        null: false
+    t.time     "end"
+    t.date     "date",         null: false
     t.integer  "participants"
-    t.string   "location"
+    t.string   "location",     null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
-    t.string   "password_hash"
+    t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
     t.string   "image"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
