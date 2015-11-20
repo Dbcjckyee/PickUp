@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :require_user, only: [:index, :show, :new]
 
   def index
     @events = Event.all
@@ -6,8 +7,9 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-    redirect_to events_path
+    if @event.save
+      redirect_to events_path
+    end
   end
 
   def new
