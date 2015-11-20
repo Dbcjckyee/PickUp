@@ -3,6 +3,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find_by(id: params[:id])
+		if @user
+			render 'show'
+		else
+			redirect_to '/'
+		end
 	end
 
 	def new
@@ -10,6 +16,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find_by(id: params[:id])
 	end
 
 	def create
@@ -23,9 +30,23 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		@user = User.find_by(id: params[:id])
+
+		if @user.update(user_params)
+			redirect_to @user
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
+		@user = User.find_by(id: params[:id])
+		if @user
+			@user.destroy
+			redirect_to '/'
+		else
+			redirect_to '/'
+		end
 	end
 
 	private
@@ -34,3 +55,8 @@ class UsersController < ApplicationController
 		end
 
 end
+
+
+# class EventsController
+# 	before_action :require_user, only: [:index, :show]
+# end
