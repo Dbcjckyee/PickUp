@@ -1,6 +1,7 @@
 require 'elasticsearch/model'
-  class Event < ActiveRecord::Base
-    # include Elasticsearch::Model
-    # include Elasticsearch::Model::Callbacks
+class Event < ActiveRecord::Base
+	belongs_to :creator, :class_name => "User"
+	has_many :event_users
+	has_many :attendees, :through =>"event_users"
+
 end
-  # Event.import

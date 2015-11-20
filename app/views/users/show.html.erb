@@ -1,0 +1,47 @@
+<div id="profile-container">
+	<h1> <%= @user.first_name.capitalize %>'s Profile</h1>
+
+	<div class="container">
+		<div class="row" id="create-event">
+			<div class="col-md-6">
+				Created Event
+				<div class="row">
+					<div class="row">
+						<div class='col-md-2' >
+							<%=@user.first_name%>
+						</div>
+						<div class='col-md-4'>
+							title
+						</div>
+						<div class='col-md-3'>
+							location	
+						</div>
+						<div class='col-md-2'>
+							host
+						</div>
+						<div class='col-md-1'>
+							attending
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6" id="joined-event">
+				Going To..
+				<div class="row">
+					<div class="row">
+						<div class='col-md-4'>
+							event name
+						</div>
+						<div class='col-md-4'>
+							sport
+						</div>
+						<div class='col-md-4'>
+							leave
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
