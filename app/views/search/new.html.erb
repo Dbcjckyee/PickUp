@@ -1,4 +1,5 @@
 <%=form_for :search, url: search_path do |f|%>
+  <%= f.label "Enter your search" %><br>
   <%=f.text_field :description %>
   <%=f.submit 'Search for events'%>
 <%end%>
