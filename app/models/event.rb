@@ -1,6 +1,3 @@
-require 'elasticsearch/model'
-  class Event < ActiveRecord::Base
-    # include Elasticsearch::Model
-    # include Elasticsearch::Model::Callbacks
+class Event < ActiveRecord::Base
+  validates :event_name, :sport, :start, :location, presence: true
 end
-  # Event.import

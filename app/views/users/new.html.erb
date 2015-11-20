@@ -1,5 +1,11 @@
-<div id="signup-form">
+
+<div id="signup-form" class="container">
 	<h1>Sign up!</h1>
+
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+
 		<%= form_for @user do |f| %>
 			<p> <%= f.text_field :first_name, :placeholder => "First Name" %></p>
 			<p> <%= f.text_field :last_name, :placeholder => "Last Name" %></p>
