@@ -36,11 +36,11 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
 
+  get 'search/new' => 'search#new'
+  get 'search' => 'search#index'
+  post 'search' => 'search#search'
 
 
-
-
-  get '/search' => 'search#search'
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
