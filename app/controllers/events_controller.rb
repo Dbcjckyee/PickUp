@@ -1,5 +1,6 @@
+
 class EventsController < ApplicationController
-  before_action :require_user, only: [:index, :show, :new]
+    before_action :require_user, only: [:index, :show, :new]
 
   def index
     @events = Event.all
@@ -23,7 +24,6 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id]).destroy
-
   end
 
   def update

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :current_user
 	def index
 	end
 
@@ -30,7 +31,8 @@ class UsersController < ApplicationController
 			redirect_to login_path
 			UserMailer.welcome_email(@user).deliver_now
 		else
-			redirect_to '/users/new'
+			flash[:notice] = "Failed to create a new account. Try Again."
+			redirect_to new_user_path
 		end
 	end
 

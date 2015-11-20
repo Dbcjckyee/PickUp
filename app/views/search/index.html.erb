@@ -1,0 +1,28 @@
+<p>Event search results</p>
+<table class = "search-results">
+<tr>
+<th class="item col-xs-1 centercolumn">Event name</th>
+<th class="item col-xs-1 centercolumn">Activity</th>
+<th class="item col-xs-1 centercolumn">Location</th>
+<th class="item col-xs-1 centercolumn">Date</th>
+<th class="item col-xs-1 centercolumn">Start time</th>
+</tr>
+<%@events.each do |event|%>
+  <tr>
+    <td class='centercolumn'>
+    <%=link_to event.event_name, event_path(event)%>
+    </td>
+    <td class='centercolumn'>
+    <%=event.sport%>
+    </td>
+    <td class='centercolumn'>
+    <%=event.location%>
+    </td>
+    <td class='centercolumn'>
+    <%=event.date%>
+    </td>
+    <td class='centercolumn'>
+    <%= event.start %>
+    </td>
+  </tr>
+<%end%>

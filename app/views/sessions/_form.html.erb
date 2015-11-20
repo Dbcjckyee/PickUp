@@ -1,13 +1,16 @@
+
 <div class="login">
 	<div class="container">
-		<div class="login-form">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
 
+    <div class="login-form">
 			<%= form_for(:session, url: login_path) do |f| %>
 				<%= f.email_field :email, :placeholder => "Email"%>
 				<%= f.password_field :password, :placeholder => "Password"%>
 				<%= f.submit "Log in" %>
 			<% end %>
-
 		</div>
 	</div>
 </div>
