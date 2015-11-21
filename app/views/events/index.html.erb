@@ -1,15 +1,8 @@
+  <%= javascript_include_tag 'userlogin/geolocate.js'%>
+
 <h1> Index </h1>
 
-<div>
-  <table>
-    <% @events.each do |event|%>
-      <tr> <td> <h3> Event Name: <%= event.event_name %> </h3></td></tr>
-      <tr> <td> Sport: <%= event.sport %> </td></tr>
-      <tr> <td> Start: <%= event.start %> </td></tr>
-      <tr> <td> Date: <%= event.date %> </td></tr>
-      <tr> <td> Location: <%= event.location %> </td></tr>
-    <% end %>
-      <tr> <td><%= link_to "Create an event", new_event_path %></td> </tr>
-  </table>
+  <div id = "nearevents">
+
 </div>
 

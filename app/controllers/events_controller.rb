@@ -16,6 +16,16 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def map
+    p params
+    respond_to do |format|
+      @event = Event.new
+      format.js {}
+    end
+    # session[:long] = params[:longitude]
+    # session[:lat] = params[:latitude]
+  end
+
   def show
     @event = Event.find(params[:id])
 
