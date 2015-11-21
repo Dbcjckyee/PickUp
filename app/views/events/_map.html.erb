@@ -1,3 +1,8 @@
+<table>
 <%test.each do |event|%>
-<H1><%=event.sport%></H1>
+<tr>
+<td><%=event.event_name%></td>
+<td><%=event.sport%></td>
+</tr>
 <%end%>
+</table>
