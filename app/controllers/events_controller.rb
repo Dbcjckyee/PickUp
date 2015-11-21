@@ -1,5 +1,6 @@
+
 class EventsController < ApplicationController
-  before_action :require_user, only: [:index, :show, :new]
+    before_action :require_user, only: [:index, :show, :new]
 
   def index
     @events = Event.all
@@ -18,7 +19,7 @@ class EventsController < ApplicationController
 
   def map
     coords = params[:latitude] + ", " + params[:longitude]
-    @nearevents = Event.near(coords, 20, :order => "distance")
+    @nearevents = Event.near(coords, 20, :order => "distance").limit(10)
     respond_to do |format|
       format.js
     end

@@ -1,4 +1,4 @@
-
+<p>Event search results</p>
 <table class = "search-results">
 <tr>
 <th class="item col-xs-1 centercolumn">Event name</th>
@@ -7,7 +7,7 @@
 <th class="item col-xs-1 centercolumn">Date</th>
 <th class="item col-xs-1 centercolumn">Start time</th>
 </tr>
-<%closeevents.each do |event|%>
+<%@events.each do |event|%>
   <tr>
     <td class='centercolumn'>
     <%=link_to event.event_name, event_path(event)%>
