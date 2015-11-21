@@ -32,15 +32,14 @@
       <td class="footer-box">
   Events near you:
       </td>
+  <% @events.each do |event| %>
       <td class="footer-box">
-  One
+ <%=link_to event.event_name, event_path(event)%><br>
+  <%=event.location%>
+  <br>
+    <%=event.start%>
       </td>
-      <td class="footer-box">
-  Two
-      </td>
-      <td class="footer-box">
-  Three
-      </td>
+      <%end%>
     </tr>
   </table>
 </div>

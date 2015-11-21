@@ -37,10 +37,15 @@ body {
   height: 10%;
 }
 .footer-box{
+  max-width: 0;
   width: 25%;
   height: 100%;
   vertical-align: middle;
   text-align: center;
+  border: 1px black solid;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {

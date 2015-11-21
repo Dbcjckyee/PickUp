@@ -5,4 +5,6 @@ class Event < ActiveRecord::Base
 	has_many :users, :through =>"event_users"
 
   validates :event_name, :sport, :start, :location, presence: true
+  geocoded_by :location
+  after_validation :geocode
 end
