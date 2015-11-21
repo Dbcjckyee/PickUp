@@ -17,10 +17,10 @@ class EventsController < ApplicationController
   end
 
   def map
-    p params
+    coords = params[:latitude] + ", " + params[:longitude]
+    @nearevents = Event.near(coords, 20, :order => "distance")
     respond_to do |format|
-      @event = Event.new
-      format.js {}
+      format.js
     end
     # session[:long] = params[:longitude]
     # session[:lat] = params[:latitude]

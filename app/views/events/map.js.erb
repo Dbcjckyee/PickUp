@@ -1,2 +1,1 @@
-$("<%= escape_javascript(render 'events/map')%>").appendTo('#nearevents')
-
+$("<%= escape_javascript(render :partial => 'events/map', :locals => {:test => @nearevents})%>").appendTo('#nearevents')
