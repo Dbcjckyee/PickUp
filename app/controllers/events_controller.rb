@@ -14,6 +14,9 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    p '*****'
+    p request.remote_ip
+         p '*****'
   end
 
   def show
