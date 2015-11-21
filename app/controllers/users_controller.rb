@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
 		@event = Event.all
 
-		
 		if @user
 			render 'show'
 		else

@@ -1,49 +1,11 @@
-	<h1> <%= @user.first_name.capitalize %>'s Profile</h1>
 
-	<div class="container">
-		<div class="row" id="create-event">
-			<div class="col-md-12">
-				<div class="row">
-					<table class="table table-striped">
-						<tr><h2>Created Event</h2></tr>
-						<thead>
-							<tr>
-								<td class="col-md-2">Date</td>
-								<td class="col-md-4">Event Name</td>
-								<td class="col-md-3">Location</td>
-								<td class="col-md-1">Host</td>
-								<td class="col-md-1">Attending</td>
-								<td class="col-md-1"></td>
-								<td class="col-md-1"></td>
-							</tr>
-						</thead>
-
-						<tbody>
-							<% @events.each do |event| %>
-							<tr>
-								<td><%= event.date %></td>
-								<td><%= event.event_name %></td>
-								<td><%= event.location %></td>
-								<td><%= event.creator.first_name %></td>
-								<td><%= event.participants %></td>
-								<td class="col-md-1"><%= link_to "edit"%></td>
-								<td class="col-md-1"><%= link_to "leave"%></td>
-							</tr>
-							<% end %>
-						</tbody>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-	</div>
-
-	<div class="container">
+<div class="container-fluid">
+	<div class="row" id="create-event">
+		<h1> <%= @user.first_name.capitalize %>'s Profile</h1>
 		<div class="col-md-12">
-			<div class="row">
+			<div class="table-responsive">
 				<table class="table table-striped">
-					<tr><h2>Joined Event</h2></tr>
+					<tr><h2>Created Events</h2></tr>
 					<thead>
 						<tr>
 							<td class="col-md-2">Date</td>
@@ -69,8 +31,49 @@
 						</tr>
 						<% end %>
 					</tbody>
+				</table>
+			</div>
+		</div>
+      <%= link_to "Create an event", new_event_path, class: "btn btn-success" %>
 
-				</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row" id="create-event">
+		<div class="col-md-12">
+			<div class="row">
+				<table class="table table-striped">
+					<tr><h2>Joined Events</h2></tr>
+					<thead>
+						<tr>
+							<td class="col-md-2">Date</td>
+							<td class="col-md-4">Event Name</td>
+							<td class="col-md-3">Location</td>
+							<td class="col-md-1">Host</td>
+							<td class="col-md-1">Attending</td>
+							<td class="col-md-1"></td>
+							<td class="col-md-1"></td>
+						</tr>
+					</thead>
+
+					<tbody>
+						<% @events.each do |event| %>
+						<tr>
+							<td><%= event.date %></td>
+							<td><%= event.event_name %></td>
+							<td><%= event.location %></td>
+							<td><%= event.creator.first_name %></td>
+							<td><%= event.participants %></td>
+							<td class="col-md-1"><%= link_to "edit"%></td>
+							<td class="col-md-1"><%= link_to "leave"%></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+        <%= link_to "All events", events_path, class: "btn btn-success"%>
 			</div>
 		</div>
 	</div>
+</div>
+

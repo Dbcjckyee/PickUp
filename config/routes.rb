@@ -27,9 +27,10 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  get '/about' => 'welcome#about'
+  get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events
+  post 'events' => 'events#join'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

@@ -46,6 +46,7 @@ group :development, :test do
   gem 'chromedriver-helper'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'hirb'
 end
 
 group :test do
