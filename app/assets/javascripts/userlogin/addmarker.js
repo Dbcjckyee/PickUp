@@ -4,8 +4,8 @@ $(document).ready(function() {
     var lat = $(this).data('lat')
     var long = $(this).data('long')
 
-    console.log(lat)
-    console.log(long)
+    // console.log(lat)
+    // console.log(long)
     // clearMarkers();
     clearOverlays();
     dropMarker(lat, long)
