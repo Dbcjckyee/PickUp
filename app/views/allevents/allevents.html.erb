@@ -7,9 +7,9 @@
     <br>
     <select name="sportmenu" id="sport">
       <option value="start"></option>
-      <option value="soccer">Soccer</option>
-      <option value="baseketball">Basketball</option>
-      <option value="tennis">Tennis</option>
+      <option value="Soccer">Soccer</option>
+      <option value="Basketball">Basketball</option>
+      <option value="Tennis">Tennis</option>
       <option value="misc">Other</option>
 
     </select>
@@ -24,6 +24,20 @@
       <option value="40">Under 40 miles</option>
       <option value="100">Under 100 miles</option>
     </select>
+    </td>
+    <td>
+    Event Start
+    <br>
+    <select name="datemenu" id="date">
+      <option value="start"></option>
+      <option value="week">This week</option>
+      <option value="2weeks">In the next two weeks</option>
+      <option value="3weeks">In the next three weeks</option>
+      <option value="month">In a month</option>
+    </select>
+    </td>
+    <td>
+    <%=link_to 'Remove Filter', allevents_path, :id => 'clear' %>
     </td>
   </tr>
 </table>
