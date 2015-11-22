@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :users, :events
   post 'events/join/:id', to: 'events#join', as: :join
   put 'events/leave/:id', to: 'events#leave', as: :leave
+  put 'events/creator_leave/:id', to: 'events#creator_leave', as: :creator_leave
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

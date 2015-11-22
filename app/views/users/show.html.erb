@@ -25,8 +25,8 @@
 							<td><%= event.location %></td>
 							<td><%= @user.first_name %></td>
 							<td><%= event.participants %></td>
-							<td class="col-md-1"><%= button_to "edit", edit_event_path, method: "put" %></td>
-							<td class="col-md-1"><%= link_to "leave", leave_path %></td>
+							<td class="col-md-1"><%= button_to "edit", edit_event_path, method: "get" %></td>
+							<td class="col-md-1"><%= link_to "leave", creator_leave_path(id: event.id), method: "put" %></td>
 						</tr>
 						<% end %>
 					</tbody>
