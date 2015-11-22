@@ -12,7 +12,7 @@
       <tr> <td> End: <%= @event.end %> </td></tr>
     <%end%>
     <tr> <td> Date: <%= @event.date %> </td></tr>
-    <tr> <td> Participants: <%= @event.users.size %> / @event.participants </td></tr>
+    <tr> <td> Participants: <%= @event.users.size %> / <%=@event.participants%> </td></tr>
     <tr> <td> Location: <%= @event.location %> </td></tr>
   </table>
         <td><%= button_to "Join", join_path(id: @event), class: "btn"%></td>
