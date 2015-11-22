@@ -1,0 +1,238 @@
+/*
+ * Globals
+ */
+/* Links */
+/* line 7, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+/* line 14, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none;
+  /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+/*
+ * Base structure
+ */
+/* line 28, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+
+/* line 33, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+body {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* line 37, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.site-footer {
+  height: 12%;
+}
+
+/* line 40, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.footer-box {
+  max-width: 0;
+  width: 25%;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px black solid;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 53, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.footer-box a:link, .footer-box a:hover, .footer-box a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+/* line 58, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 85.5%;
+  /* For at least Firefox */
+  min-height: 85.5%;
+  background-image: url(/assets/tennis-0a08f55ac79d2e95fea44de45cb311c7de7b92630d04f363806f7167aece63d8.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* line 68, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.site-wrapper-inner {
+  display: table-row;
+  height: 35%;
+}
+
+/* line 72, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.site-wrapper-bottom {
+  display: table-row;
+  height: 35%;
+}
+
+/* line 77, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.cover-container {
+  display: table-row;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(65, 20, 165, 0.3);
+  width: 100%;
+}
+
+/* Padding for spacing */
+/* line 87, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.inner {
+  padding: 30px;
+  text-align: center;
+}
+
+/*
+ * Header
+ */
+/* line 97, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 102, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.masthead-nav > li {
+  display: inline-block;
+}
+
+/* line 105, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+
+/* line 108, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  /* IE8 proofing */
+  color: rgba(255, 255, 255, 0.75);
+  border-bottom: 2px solid transparent;
+}
+
+/* line 117, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+/* line 123, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+  /* line 131, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .masthead-brand {
+    float: left;
+  }
+
+  /* line 134, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .masthead-nav {
+    float: right;
+  }
+}
+/*
+ * Cover
+ */
+/* line 144, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.cover {
+  padding: 0 20px;
+}
+
+/* line 147, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+/* line 157, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.mastfoot {
+  color: #999;
+  /* IE8 proofing */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/*
+ * Affix and center
+ */
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  /* line 169, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+
+  /* line 173, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+
+  /* Start the vertical centering */
+  /* line 178, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+
+  /* Handle the widths */
+  /* line 182, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%;
+    /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+@media (min-width: 992px) {
+  /* line 190, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
+/* line 196, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.text-shadow-format {
+  font-size: 60px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+/* line 203, /Users/apprentice/Desktop/PickUp/app/assets/stylesheets/welcome.scss */
+.spacer {
+  margin-left: 10px;
+  margin-right: 5px;
+}
