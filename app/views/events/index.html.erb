@@ -1,11 +1,12 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-897CDl9CnFtZDVIQEQkd409ibKqcmQ" type="text/javascript"></script>
   <%= javascript_include_tag 'userlogin/geolocate.js'%>
 
-<h1> Events near you</h1>
+<div class="container">
 
-  <div id = "nearevents">
+  <h1> Events near you</h1>
+
+  <div id = "nearevents"></div>
+
+<%= button_to "Create an event", new_event_path, class: "btn-success" %>
 
 </div>
-
-<%= link_to "Create an event", new_event_path, class: "btn btn-success" %>
-

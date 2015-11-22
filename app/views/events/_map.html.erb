@@ -2,7 +2,7 @@
   <%= javascript_include_tag 'userlogin/addmarker.js'%>
 
   <div id = "mappp" style="height: 500px"></div>
-<table class = "search-results">
+<table class = "search-results table table-striped">
 <tr>
 <th class="item col-xs-1 centercolumn">Event name</th>
 <th class="item col-xs-1 centercolumn">Activity</th>
@@ -35,7 +35,7 @@
         Show
         <% end %>
     </td>
-    <td class="col-md-1"><%= button_to "Join", join_path(id: event.id), class: "btn"%></td>
+    <td class="col-md-1"><%= button_to "Join", join_path(id: event.id)%></td>
   </tr>
 <%end%>
 
