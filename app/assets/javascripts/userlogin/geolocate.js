@@ -23,7 +23,6 @@ $(document).ready(function() {
         data: coords,
         method: "POST",
         url: '/events/map',
-        error: function(){console.log("WRONG")}
       })
 
 
