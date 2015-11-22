@@ -8,10 +8,8 @@ class EventsController < ApplicationController
   end
 
   def join
-    p "-" * 50
     p @event = Event.find(params[:id])
     p @event.users << User.find(current_user.id)
-    p "-" * 50
 
     redirect_to events_path
   end
@@ -21,6 +19,9 @@ class EventsController < ApplicationController
     @event.creator_id = current_user.id
     if @event.save
       redirect_to events_path
+    else
+      flash[:notice] = @event.errors.full_messages
+      redirect_to new_event_path
     end
   end
 
