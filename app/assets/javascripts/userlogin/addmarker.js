@@ -28,10 +28,19 @@ function initMap() {
       zoom: 13,
       // center: myLatLng
     });
+    // var sing = new google.maps.Map(document.getElementById('mappp'), {
+    //   zoom: 13,
+    //   // center: myLatLng
+    // });
 
     return map;
+
   }
-  markersArray = [];
+
+  google.maps.event.addDomListener(window, "load", initMap);
+
+markersArray = [];
+
   var map = new initMap()
   navigator.geolocation.getCurrentPosition(function (position) {
   initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);

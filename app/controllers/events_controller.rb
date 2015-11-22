@@ -1,17 +1,16 @@
 class EventsController < ApplicationController
-    before_action :current_user, :require_user, only: [:index, :show, :new]
+    before_action :current_user, :require_user, only: [:index, :show, :new, :edit]
+
 
   def index
     @events = Event.all
     @user = current_user
-    # @joined = Event.
   end
 
   def join
-    p "-" * 50
-    p @event = Event.find(params[:id])
-    p @event.users << User.find(current_user.id)
-    p "-" * 50
+    @new_user = User.find(current_user.id)
+    @event = Event.find(params[:id])
+    @event.users << @new_user unless @event.users.exists?(@new_user)
 
     redirect_to events_path
   end
@@ -20,10 +19,44 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.creator_id = current_user.id
     if @event.save
+      @event.users << User.find(current_user.id)
       redirect_to events_path
+    else
+      flash[:notice] = @event.errors.full_messages
+      redirect_to new_event_path
     end
   end
 
+  def creator_leave
+    p @event = Event.find(params[:id])
+    p @host = @event.creator
+    p @new_host = @event.users.last
+    p @attendees = @event.users.size
+    # p "*" * 50
+    if @attendees > 1
+      @event.update_attribute(:creator_id, @new_host.id)
+      p 'a' * 50
+      @event.users.destroy(User.find(current_user.id))
+    else
+      @event.destroy
+      p 'b' * 50
+    end
+      redirect_to user_path(current_user)
+     #if no one left delete event
+  end
+
+  def leave
+    @event = Event.find(params[:id])
+
+    if @event.creator_id == current_user.id
+      p 'c' * 50
+      creator_leave
+    else
+      @event.users.destroy(User.find(current_user.id))
+      p 'd' * 50
+      redirect_to user_path(current_user)
+    end
+  end
 
 
   def new
@@ -31,9 +64,8 @@ class EventsController < ApplicationController
   end
 
   def map
-
     coords = params[:latitude] + ", " + params[:longitude] #takes the longitude and lat from the AJAX call and concatenates them into a string
-        p coords
+         coords
     @nearevents = Event.near(coords, 20, :order => "distance").limit(10) #Runs the coords in Geocoder to find all events within 20(2nd arg) miles. It then sorts them by distance and limits the return array to 10 items. This also passes @nearevents into the function below.
     respond_to do |format|
       format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
@@ -64,5 +96,4 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:event_name, :description, :sport, :start, :end, :date, :participants, :location)
     end
-
 end
