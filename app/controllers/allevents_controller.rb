@@ -8,7 +8,7 @@ class AlleventsController < ApplicationController
     if params[:key] == "sport"
       @eventmatch = Event.where(sport: params[:sport])
     elsif params[:key] == "location"
-      @eventmatch = Event.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance")
+      @eventmatch = Event.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance") #converts the params into a long/lat sequence and pulls
     elsif params[:key] == "date"
       case params[:date]
       when "week"
