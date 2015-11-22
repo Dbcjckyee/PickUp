@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events
-  post 'events' => 'events#join'
+  post 'events/id', to: 'events#join', as: :join
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

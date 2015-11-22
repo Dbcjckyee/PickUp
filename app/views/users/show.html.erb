@@ -1,5 +1,4 @@
-
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
 	<div class="row" id="create-event">
 		<h1> <%= @user.first_name.capitalize %>'s Profile</h1>
 		<div class="col-md-12">
@@ -19,12 +18,12 @@
 					</thead>
 
 					<tbody>
-						<% @events.each do |event| %>
+						<% @user.created_events.each do |event| %>
 						<tr>
 							<td><%= event.date %></td>
 							<td><%= event.event_name %></td>
 							<td><%= event.location %></td>
-							<td><%= event.creator.first_name %></td>
+							<td><%= @user.first_name %></td>
 							<td><%= event.participants %></td>
 							<td class="col-md-1"><%= link_to "edit"%></td>
 							<td class="col-md-1"><%= link_to "leave"%></td>
@@ -35,7 +34,6 @@
 			</div>
 		</div>
       <%= link_to "Create an event", new_event_path, class: "btn btn-success" %>
-
 	</div>
 </div>
 
@@ -58,12 +56,12 @@
 					</thead>
 
 					<tbody>
-						<% @events.each do |event| %>
+						<% @user.events.each do |event| %>
 						<tr>
 							<td><%= event.date %></td>
 							<td><%= event.event_name %></td>
 							<td><%= event.location %></td>
-							<td><%= event.creator.first_name %></td>
+							<td><%= (event.creator).first_name %></td>
 							<td><%= event.participants %></td>
 							<td class="col-md-1"><%= link_to "edit"%></td>
 							<td class="col-md-1"><%= link_to "leave"%></td>
@@ -75,5 +73,5 @@
 			</div>
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 
