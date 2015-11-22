@@ -3,12 +3,15 @@ $(document).ready(function() {
     event.preventDefault();
     var lat = $(this).data('lat')
     var long = $(this).data('long')
-
+    $('tr').removeClass("highlight")
+    $(this).parent().parent().addClass("highlight")
+    // debugger
     // console.log(lat)
     // console.log(long)
     // clearMarkers();
     clearOverlays();
-    dropMarker(lat, long)
+    markersArray.push(dropMarker(lat, long, "?"))
+    map.setZoom(13);
     map.setCenter(new google.maps.LatLng(lat, long))
   });
 
@@ -28,10 +31,11 @@ function initMap() {
 
     return map;
   }
-markersArray = [];
+  markersArray = [];
   var map = new initMap()
   navigator.geolocation.getCurrentPosition(function (position) {
   initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  dropMarker(position.coords.latitude, position.coords.longitude, "!")
   map.setCenter(initialLocation)});
 
 
@@ -41,13 +45,14 @@ markersArray = [];
   // label: '!'
   // });
 
-  function dropMarker(lati, longi){
+  function dropMarker(lati, longi, symbol){
     var marker = new google.maps.Marker({
     map: map,
     position: {lat: lati, lng: longi},
-    label: '!'
+    label: symbol
     });
-    markersArray.push(marker)
+    // markersArray.push(marker)
+    return marker;
   }
   // function clearMarkers(){
   //   setMapOnAll(null);
