@@ -2,6 +2,7 @@
 	<div class="row" id="create-event">
 		<h1> <%= @user.first_name.capitalize %>'s Profile</h1>
 		<div class="col-md-12">
+		<div class="row"
 			<div class="table">
 				<table class="table table-striped text-center">
 					<tr><h2>My Events</h2></tr>
@@ -30,7 +31,7 @@
 						<% end %>
 					</tbody>
 				</table>
-      <%= link_to "Create an event", new_event_path, class: "btn btn-success" %>
+      <%= button_to "Create an event", new_event_path, method: "get", class: "btn-info" %>
 			</div>
 		</div>
 	</div>
@@ -67,7 +68,7 @@
 						<% end %>
 					</tbody>
 				</table>
-        <%= link_to "All events", events_path, class: "btn btn-success"%>
+        <%= button_to "All events", events_path, method: "get", class: "btn-info"%>
 			</div>
 		</div>
 	</div>
