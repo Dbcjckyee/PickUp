@@ -1,0 +1,28 @@
+<table id ="allevents">
+  <tr>
+<th class="item col-xs-1 centercolumn">Event name</th>
+<th class="item col-xs-1 centercolumn">Activity</th>
+<th class="item col-xs-1 centercolumn">Location</th>
+<th class="item col-xs-1 centercolumn">Date</th>
+<th class="item col-xs-1 centercolumn">Start time</th>
+</tr>
+  <%@eventmatch.each do |event|%>
+    <tr>
+      <td>
+        <%=link_to event.event_name, event_path(event)%>
+      </td>
+      <td>
+        <%=event.sport%>
+      </td>
+      <td>
+        <%=event.location%>
+      </td>
+      <td>
+        <%=event.date%>
+      </td>
+      <td>
+        <%=event.start%>
+      </td>
+    </tr>
+  <%end%>
+</table>
