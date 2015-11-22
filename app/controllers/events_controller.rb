@@ -7,8 +7,9 @@ class EventsController < ApplicationController
   end
 
   def join
+    @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
-    @event.users << User.find(current_user.id)
+    @event.users << @new_user unless @event.users.exists?(@new_user)
 
     redirect_to events_path
   end
@@ -25,22 +26,32 @@ class EventsController < ApplicationController
   def creator_leave
     p @event = Event.find(params[:id])
     p @host = @event.creator
-    p @attendee = @event.users.last
+    p @new_host = @event.users.last
+    p @attendees = @event.users.size
     # p "*" * 50
-
-    @event.update_attribute(:creator_id, @attendee.id)
-
-
-     redirect_to user_path(current_user)
+    if @attendees > 1
+      @event.update_attribute(:creator_id, @new_host.id)
+      p 'a' * 50
+      @event.users.destroy(User.find(current_user.id))
+    else
+      @event.destroy
+      p 'b' * 50
+    end
+      redirect_to user_path(current_user)
      #if no one left delete event
   end
 
   def leave
-     params
-     @event = Event.find(params[:id])
-     @event.users.destroy(User.find(current_user.id))
+    @event = Event.find(params[:id])
 
-    redirect_to user_path(current_user)
+    if @event.creator_id == current_user.id
+      p 'c' * 50
+      creator_leave
+    else
+      @event.users.destroy(User.find(current_user.id))
+      p 'd' * 50
+      redirect_to user_path(current_user)
+    end
   end
 
 
