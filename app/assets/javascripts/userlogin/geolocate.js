@@ -14,26 +14,24 @@ $(document).ready(function() {
     // }
   navigator.geolocation.getCurrentPosition(success, failure)
 
-function success(position) {
-    var coords = {
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude
-    };
-    $.ajax({
-      data: coords,
-      method: "POST",
-      url: '/events/map',
-      error: function(){console.log("WRONG")}
-    })
-    .done(function(){
+  function success(position) {
+      var coords = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      };
+      $.ajax({
+        data: coords,
+        method: "POST",
+        url: '/events/map',
+        error: function(){console.log("WRONG")}
+      })
 
-      console.log("WINNER")
-    })
 
+    }
+
+  function failure(position){
+    $('#nearevents').html("<H4>You must share your location to find nearby events</H4>")
   }
 
-function failure(position){
-  $('#nearevents').html("<H4>You must share your location to find nearby events</H4>")
-}
 });
 

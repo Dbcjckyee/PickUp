@@ -1,4 +1,7 @@
 
+  <%= javascript_include_tag 'userlogin/addmarker.js'%>
+
+  <div id = "mappp" style="height: 500px"></div>
 <table class = "search-results">
 <tr>
 <th class="item col-xs-1 centercolumn">Event name</th>
@@ -6,6 +9,8 @@
 <th class="item col-xs-1 centercolumn">Location</th>
 <th class="item col-xs-1 centercolumn">Date</th>
 <th class="item col-xs-1 centercolumn">Start time</th>
+<th class="item col-xs-1 centercolumn">Display on map</th>
+
 </tr>
 <%closeevents.each do |event|%>
   <tr>
@@ -24,5 +29,12 @@
     <td class='centercolumn'>
     <%= event.start %>
     </td>
+    <td class='centercolumn'>
+        <%= link_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
+        Show
+        <% end %>
+    </td>
   </tr>
 <%end%>
+
+
