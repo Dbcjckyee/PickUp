@@ -25,12 +25,14 @@ class EventsController < ApplicationController
   def creator_leave
     p @event = Event.find(params[:id])
     p @host = @event.creator
-    @attendees = @event.users
-    # @event.update_attributes(:creator_id: )
+    p @attendee = @event.users.last
     # p "*" * 50
+
+    @event.update_attribute(:creator_id, @attendee.id)
 
 
      redirect_to user_path(current_user)
+     #if no one left delete event
   end
 
   def leave

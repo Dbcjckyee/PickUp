@@ -15,5 +15,6 @@
     <tr> <td> Participants: <%= @event.participants %> </td></tr>
     <tr> <td> Location: <%= @event.location %> </td></tr>
   </table>
+        <td><%= button_to "Join", join_path(id: @event), class: "btn"%></td>
 </div>
 
