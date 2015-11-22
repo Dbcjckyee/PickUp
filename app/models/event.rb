@@ -7,7 +7,9 @@ class Event < ActiveRecord::Base
   def creator
     p self
     p User.find(self.creator_id)
-
-
   end
+
+  geocoded_by :location
+  after_validation :geocode
+
 end

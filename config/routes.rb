@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  post 'events/map' => 'events#map'
 
   get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
