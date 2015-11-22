@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   #   end
   post 'events/map' => 'events#map'
 
-  get '/about' => 'welcome#about'
+  get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events
+  post 'events/id', to: 'events#join', as: :join
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

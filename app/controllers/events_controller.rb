@@ -1,17 +1,30 @@
-
 class EventsController < ApplicationController
-    before_action :require_user, only: [:index, :show, :new]
+    before_action :current_user, :require_user, only: [:index, :show, :new]
 
   def index
     @events = Event.all
+    @user = current_user
+    # @joined = Event.
+  end
+
+  def join
+    p "-" * 50
+    p @event = Event.find(params[:id])
+    p @event.users << User.find(current_user.id)
+    p "-" * 50
+
+    redirect_to events_path
   end
 
   def create
     @event = Event.new(event_params)
+    @event.creator_id = current_user.id
     if @event.save
       redirect_to events_path
     end
   end
+
+
 
   def new
     @event = Event.new
@@ -31,7 +44,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-
   end
 
   def destroy
