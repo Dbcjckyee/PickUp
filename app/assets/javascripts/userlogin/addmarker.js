@@ -25,10 +25,10 @@ function initMap() {
       zoom: 13,
       // center: myLatLng
     });
-    var sing = new google.maps.Map(document.getElementById('mappp'), {
-      zoom: 13,
-      // center: myLatLng
-    });
+    // var sing = new google.maps.Map(document.getElementById('mappp'), {
+    //   zoom: 13,
+    //   // center: myLatLng
+    // });
  
     return map;
 

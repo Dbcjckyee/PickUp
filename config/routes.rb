@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events
-  post 'events/id', to: 'events#join', as: :join
+  post 'events/join/:id', to: 'events#join', as: :join
+  put 'events/leave/:id', to: 'events#leave', as: :leave
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

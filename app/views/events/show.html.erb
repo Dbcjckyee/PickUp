@@ -20,5 +20,8 @@
   </table>
 </div>
 
-<div id="mappp" style="height: 500px; width: 400px"></div>
+<div id="map2" style="height: 500px; width: 500px"></div>
+
+  <%= content_tag :div, id: "event-info", data: {lat_info: @event.latitude, lng_info: @event.longitude} do %>
+  <% end %>
 
