@@ -4,7 +4,10 @@
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( userlogin/geolocate.js )
 Rails.application.config.assets.precompile += %w( userlogin/addmarker.js )
+
 Rails.application.config.assets.precompile += %w( eventfilters/filtering.js )
+Rails.application.config.assets.precompile += %w( userlogin/map.js )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
