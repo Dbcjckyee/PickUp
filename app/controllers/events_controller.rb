@@ -20,6 +20,9 @@ class EventsController < ApplicationController
     if @event.save
       @event.users << User.find(current_user.id)
       redirect_to events_path
+    else
+      flash[:notice] = @event.errors.full_messages
+      redirect_to new_event_path
     end
   end
 
