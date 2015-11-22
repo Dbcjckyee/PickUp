@@ -9,16 +9,18 @@
 </head>
 <body>
   <div class="navbar-default navbar-inverse">
-    <%= link_to 'Home', root_path %>
     <% if @current_user %>
-	    <%= link_to "Profile", user_path(@current_user) %>
-			<%= @current_user.email %>
-			<%= link_to "Logout", logout_path, method: "delete", class: "navbar-btn" %>
-		<% else %>
+      <%= link_to 'Home', events_path, class: " btn navbar-btn"%>
+      <%= link_to "Profile", user_path(@current_user), class: "btn navbar-btn" %>
+      <%= @current_user.email %>
+      <%= link_to "Logout", logout_path, method: "delete", class: "btn navbar-btn" %>
+    <% else %>
+      <%= link_to 'Home', root_path %>
 			<%= link_to "Login", 'login', class: "btn navbar-btn" %>
 			<%= link_to "Signup", 'signup', class: "btn navbar-btn" %>
 		<% end %>
 	</div>
+
     <%= yield %>
 </body>
 </html>
