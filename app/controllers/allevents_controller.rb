@@ -5,7 +5,13 @@ class AlleventsController < ApplicationController
   end
 
   def update
-    @eventmatch = Event.where(sport: params[:sport])
+    if params[:key] == "sport"
+      @eventmatch = Event.where(sport: params[:sport])
+    elsif params[:key] == "location"
+      p request.location.city
+      @eventmatch = Event.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance")
+    end
+    @eventmatch
     respond_to do |filter|
       filter.js
     end
