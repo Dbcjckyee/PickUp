@@ -1,0 +1,57 @@
+  <%= javascript_include_tag 'eventfilters/filtering.js'%>
+
+<table id="filters">
+  <tr>
+    <td>
+    Sport
+    <br>
+    <select name="sportmenu" id="sport">
+      <option value="start"></option>
+      <option value="soccer">Soccer</option>
+      <option value="baseketball">Basketball</option>
+      <option value="tennis">Tennis</option>
+      <option value="misc">Other</option>
+
+    </select>
+    </td>
+    <td>
+    Location
+    <br>
+    <select name="locationmenu" id="location">
+      <option value="start"></option>
+      <option value="close">Under 5 miles</option>
+      <option value="closemed">5-20 miles</option>
+      <option value="medium">20-40 miles</option>
+      <option value="far">40 miles+</option>
+    </select>
+    </td>
+  </tr>
+</table>
+<table id ="allevents">
+<tr>
+<th class="item col-xs-1 centercolumn">Event name</th>
+<th class="item col-xs-1 centercolumn">Activity</th>
+<th class="item col-xs-1 centercolumn">Location</th>
+<th class="item col-xs-1 centercolumn">Date</th>
+<th class="item col-xs-1 centercolumn">Start time</th>
+</tr>
+  <%@events.each do |event|%>
+    <tr>
+      <td>
+        <%=link_to event.event_name, event_path(event)%>
+      </td>
+      <td>
+        <%=event.sport%>
+      </td>
+      <td>
+        <%=event.location%>
+      </td>
+      <td>
+        <%=event.date%>
+      </td>
+      <td>
+        <%=event.start%>
+      </td>
+    </tr>
+  <%end%>
+</table>

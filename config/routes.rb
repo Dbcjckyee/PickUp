@@ -26,12 +26,16 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+
   post 'events/map' => 'events#map'
 
   get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events
+
   post 'events/id', to: 'events#join', as: :join
+  get 'allevents' => 'allevents'
+  post 'allevents/update' => 'allevents#update'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
