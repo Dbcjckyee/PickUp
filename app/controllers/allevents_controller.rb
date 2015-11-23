@@ -1,4 +1,5 @@
 class AlleventsController < ApplicationController
+  before_action :current_user
 
   def allevents
     @events = Event.all
