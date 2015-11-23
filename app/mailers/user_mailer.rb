@@ -8,13 +8,13 @@ class UserMailer < ApplicationMailer
   def event_confirm_email(user, event)
     @user = user
     @event = event
-    mail(to: @user.email, subject: "PickUp: confirming #{@event.name}")
+    mail(to: @user.email, subject: "PickUp: confirming #{@event.event_name}")
   end
 
   def event_creation_email(user, event)
     @user = user
     @event = event
-    mail(to: @user.email, subject: "PickUp: #{@event.name} has  been successfully created")
+    mail(to: @user.email, subject: "PickUp: #{@event.event_name} has  been successfully created")
   end
 
 end

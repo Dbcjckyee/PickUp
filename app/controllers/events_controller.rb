@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
     @event.users << @new_user unless @event.users.exists?(@new_user)
-
+     UserMailer.event_confirm_email(User.find(current_user.id), @event).deliver_now
     redirect_to events_path
   end
 
@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.creator_id = current_user.id
     if @event.save
+      UserMailer.event_creation_email(User.find(current_user.id), @event).deliver_now
       @event.users << User.find(current_user.id)
       redirect_to events_path
     else
