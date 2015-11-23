@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     unless @event.users.exists?(@new_user)
       @event.users << @new_user
       UserMailer.event_confirm_email(User.find(current_user.id), @event).deliver_now
-      UserMailer.join_notification(@event.creator, @event)
+      UserMailer.join_notification(@event.creator, @event).deliver_now
     end
     redirect_to events_path
   end
