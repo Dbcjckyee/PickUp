@@ -3,15 +3,18 @@ class EventsController < ApplicationController
 
 
   def index
-    @events = Event.all
+    @events = Event.current
     @user = current_user
   end
 
   def join
     @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
-    @event.users << @new_user unless @event.users.exists?(@new_user)
-
+    unless @event.users.exists?(@new_user)
+      @event.users << @new_user
+      UserMailer.event_confirm_email(User.find(current_user.id), @event).deliver_now
+      UserMailer.join_notification(@event.creator, @event).deliver_now
+    end
     redirect_to events_path
   end
 
@@ -19,6 +22,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.creator_id = current_user.id
     if @event.save
+      UserMailer.event_creation_email(User.find(current_user.id), @event).deliver_now
       @event.users << User.find(current_user.id)
       redirect_to events_path
     else
@@ -61,7 +65,7 @@ class EventsController < ApplicationController
   def map
     coords = params[:latitude] + ", " + params[:longitude] #takes the longitude and lat from the AJAX call and concatenates them into a string
          coords
-    @nearevents = Event.near(coords, 20, :order => "distance").limit(10) #Runs the coords in Geocoder to find all events within 20(2nd arg) miles. It then sorts them by distance and limits the return array to 10 items. This also passes @nearevents into the function below.
+    @nearevents = Event.current.near(coords, 20, :order => "distance").limit(10) #Runs the coords in Geocoder to find all events within 20(2nd arg) miles. It then sorts them by distance and limits the return array to 10 items. This also passes @nearevents into the function below.
     respond_to do |format|
       format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
     end
