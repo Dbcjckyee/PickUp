@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PickUp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-897CDl9CnFtZDVIQEQkd409ibKqcmQ" type="text/javascript"></script>
+  <head>
+    <title>PickUp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-897CDl9CnFtZDVIQEQkd409ibKqcmQ" type="text/javascript"></script>
 
-</head>
-<body>
-  <div class="navbar-default navbar-inverse">
-    <% if @current_user %>
-      <%= link_to 'Home', events_path, class: " btn navbar-btn"%>
-      <%= link_to "Profile", user_path(@current_user), class: "btn navbar-btn" %>
-      <%= link_to "Logout", logout_path, method: "delete", class: "btn navbar-btn" %>
-       <%= link_to "Hi, #{@current_user.first_name.capitalize}!", user_path(current_user), class: " btn navbar-btn pull-right" %>
-    <% else %>
-      <%= link_to 'Home', root_path, class: " btn navbar-btn" %>
-      <%= link_to "Login", 'login', class: "btn navbar-btn" %>
-      <%= link_to "Signup", 'signup', class: "btn navbar-btn" %>
-		<% end %>
-	</div>
+  </head>
+  <body>
+    <div class="navbar-default navbar-inverse">
+      <% if @current_user %>
+        <%= link_to 'Home', events_path, class: " btn navbar-btn"%>
+        <%= link_to "Profile", user_path(@current_user), class: "btn navbar-btn" %>
+        <%= link_to "Logout", logout_path, method: "delete", class: "btn navbar-btn" %>
+         <%= link_to "Hi, #{@current_user.first_name.capitalize}!", user_path(current_user), class: " btn navbar-btn pull-right" %>
+      <% else %>
+        <%= link_to 'Home', root_path, class: " btn navbar-btn" %>
+        <%= link_to "Login", 'login', class: "btn navbar-btn" %>
+        <%= link_to "Signup", 'signup', class: "btn navbar-btn" %>
+  		<% end %>
+  	</div>
 
-    <% if current_page?(controller: 'welcome', action:'index') %>
-      <%=  yield  %>
-    <% else   %>
-      <div class="container">
-        <%= yield  %>
-      </div>
-    <%end %>
+      <% if current_page?(controller: 'welcome', action:'index') %>
+        <%=  yield  %>
+      <% else   %>
+        <div class="container">
+          <%= yield  %>
+        </div>
+      <%end %>
 
 
-</body>
+  </body>
 </html>
