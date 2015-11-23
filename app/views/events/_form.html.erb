@@ -11,23 +11,23 @@
 
 <div class="form-group">
   <%= f.label :sport %><br>
-  <%= f.text_field :sport, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= f.label :start %><br>
-  <%= f.text_field :start, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= f.label :end %><br>
-  <%= f.text_field :"end", class: "form-control" %>
+  <%= f.select :sport, Event.all.collect {|p| [ p.sport, p.id ] }, {prompt: 'Select Sport'}, class: "form-control" %>
 </div>
 
 <div class="form-group">
   <%= f.label :date %><br>
-  <%= f.text_field :date, "data-provide" => "datepicker",  class: "form-control " %>
+  <%= f.text_field :date, "data-provide" => "datepicker" %>
+  <div class="form-group">
+    <%= f.label :start %><br>
+    <%= f.time_select :start, {ampm: true}%>
+  </div>
+  <div class="form-group">
+
+    <%= f.label :end %><br>
+    <%= f.time_select :"end", {ampm: true} %>
+  </div>
 </div>
+
 
 <div class="form-group">
   <%= f.label :participants %><br>
