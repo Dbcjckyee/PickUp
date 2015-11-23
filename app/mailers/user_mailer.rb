@@ -17,4 +17,9 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "PickUp: #{@event.event_name} has  been successfully created")
   end
 
+  def join_notification(owner, event)
+    @owner = owner
+    @event = event
+    mail(to: @owner.email, subject: "PickUp: #{@event.event_name} has received a signup")
+  end
 end

@@ -10,8 +10,11 @@ class EventsController < ApplicationController
   def join
     @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
-    @event.users << @new_user unless @event.users.exists?(@new_user)
-     UserMailer.event_confirm_email(User.find(current_user.id), @event).deliver_now
+    unless @event.users.exists?(@new_user)
+      @event.users << @new_user
+      UserMailer.event_confirm_email(User.find(current_user.id), @event).deliver_now
+      UserMailer.join_notification(@event.creator, @event)
+    end
     redirect_to events_path
   end
 
