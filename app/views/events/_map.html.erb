@@ -25,10 +25,10 @@
     <%=event.location%>
     </td>
     <td class='centercolumn'>
-    <%=event.date%>
+    <%=event.date.strftime("%A %m/%d/%Y")%>
     </td>
     <td class='centercolumn'>
-    <%= event.start %>
+    <%= event.start.strftime("%I:%M %P") %>
     </td>
     <td class='centercolumn'>
         <%= link_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>

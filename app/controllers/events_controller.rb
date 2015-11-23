@@ -27,37 +27,32 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:notice] = @event.errors.full_messages
+      p @event.errors
       redirect_to new_event_path
     end
   end
 
   def creator_leave
-    p @event = Event.find(params[:id])
-    p @host = @event.creator
-    p @new_host = @event.users.last
-    p @attendees = @event.users.size
-    # p "*" * 50
+    @event = Event.find(params[:id])
+    @host = @event.creator
+    @new_host = @event.users.last
+    @attendees = @event.users.size
     if @attendees > 1
       @event.update_attribute(:creator_id, @new_host.id)
-      p 'a' * 50
       @event.users.destroy(User.find(current_user.id))
     else
       @event.destroy
-      p 'b' * 50
     end
       redirect_to user_path(current_user)
-     #if no one left delete event
+      #if no one left delete event
   end
 
   def leave
     @event = Event.find(params[:id])
-
     if @event.creator_id == current_user.id
-      p 'c' * 50
       creator_leave
     else
       @event.users.destroy(User.find(current_user.id))
-      p 'd' * 50
       redirect_to user_path(current_user)
     end
   end

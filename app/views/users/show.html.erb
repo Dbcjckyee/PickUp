@@ -2,16 +2,16 @@
 	<div class="row" id="create-event">
 		<h1> <%= @user.first_name.capitalize %>'s Profile</h1>
 		<div class="col-md-12">
-		<div class="row"
+		<div class="row">
 			<div class="table">
 				<table class="table table-striped text-center">
 					<tr><h2>My Events</h2></tr>
 					<thead>
 						<tr>
 							<td class="col-md-2">Date</td>
-							<td class="col-md-4">Event Name</td>
-							<td class="col-md-3">Location</td>
-							<td></td>
+							<td class="col-md-2">Event Name</td>
+							<td class="col-md-1">Time</td>
+							<td class="col-md-2">Location</td>
 							<td class="col-md-1">Attending</td>
 							<td class="col-md-1"></td>
 							<td class="col-md-1"></td>
@@ -21,17 +21,18 @@
 					<tbody>
 						<% @user.created_events.each do |event| %>
 						<tr>
-							<td><%= event.date %></td>
-							<td><%= event.event_name %></td>
+							<td><%= event.date.strftime("%A  %m/%d/%Y") %></td>
+							<td><%= link_to event.event_name, event_path(event.id) %></td>
+							<td><%= event.start.strftime("%I:%M %P") %></td>
 							<td><%= event.location %></td>
 							<td><%= event.users.size %> / <%= event.participants %></td>
-							<td class="col-md-1"><%= button_to "edit", edit_event_path, method: "get" %></td>
+							<td class="col-md-1"><%= button_to "edit", edit_event_path(event.id), method: "get" %></td>
 							<td class="col-md-1"><%= link_to "leave", creator_leave_path(id: event.id), method: "put" %></td>
 						</tr>
 						<% end %>
 					</tbody>
 				</table>
-      <%= button_to "Create an event", new_event_path, method: "get", class: "btn-info" %>
+      	<%= button_to "Create an event", new_event_path, method: "get", class: "btn-info pull-right" %>
 			</div>
 		</div>
 	</div>
@@ -46,11 +47,11 @@
 					<thead>
 						<tr>
 							<td class="col-md-2">Date</td>
-							<td class="col-md-4">Event Name</td>
+							<td class="col-md-2">Event Name</td>
+							<td class="col-md-2">Time</td>
 							<td class="col-md-3">Location</td>
 							<td class="col-md-1">Host</td>
 							<td class="col-md-1">Attending</td>
-							<td class="col-md-1"></td>
 							<td class="col-md-1"></td>
 						</tr>
 					</thead>
@@ -58,17 +59,24 @@
 					<tbody>
 						<% @user.events.each do |event| %>
 						<tr>
-							<td><%= event.date %></td>
-							<td><%= event.event_name %></td>
+							<td><%= event.date.strftime("%A %m/%d/%Y") %></td>
+							<td><%= link_to event.event_name, event_path(event.id) %></td>
+							<td><%= event.start.strftime("%I:%M %P") %></td>
+
 							<td><%= event.location %></td>
 							<td><%= (event.creator).first_name.capitalize %> <%= (event.creator).last_name[0].capitalize %>.</td>
 							<td><%= event.users.size %> / <%= event.participants %> </td>
-							<td class="col-md-1"><%= link_to "leave", leave_path(id: event.id), method: "put" %></td>
+							<td class="col-md-1"><%= button_to "leave", leave_path(id: event.id), method: "put" %></td>
 						</tr>
 						<% end %>
 					</tbody>
 				</table>
-        <%= button_to "All events", events_path, method: "get", class: "btn-info"%>
+				<div class="col-md-1 pull-right">
+        	<%= button_to "Nearby Events", events_path, method: "get", class: "btn-info"%>
+        </div>
+				<div class="pull-right">
+        	<%= button_to "All events", allevents_path, method: "get", class: "btn-info"%>
+				</div>
 			</div>
 		</div>
 	</div>

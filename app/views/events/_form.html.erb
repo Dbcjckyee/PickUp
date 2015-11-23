@@ -1,46 +1,46 @@
-  <%= form_for @event do |f| %>
-    <div class="form-group">
-      <%= f.label :event_name %><br>
-      <%= f.text_field :event_name, class: "form-control" %>
-    </div>
+<%= form_for @event do |f| %>
+<div class="form-group">
+  <%= f.label :event_name %><br>
+  <%= f.text_field :event_name, class: "form-control" %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :description %><br>
-      <%= f.text_field :description, class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :description %><br>
+  <%= f.text_field :description, class: "form-control" %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :sport %><br>
-      <%= f.text_field :sport, class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :sport %><br>
+  <%= f.select :sport, Event.all.collect {|event| [ event.sport, event.id ] }, {prompt: "Select sport"}, class: "form-control" %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :start %><br>
-      <%= f.text_field :start, class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :start %><br>
+  <%= f.time_select :start, {:ampm => true}  %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :end %><br>
-      <%= f.text_field :"end", class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :end %><br>
+  <%= f.time_select :"end", {:ampm => true} %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :date %><br>
-      <%= f.text_field :date, class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :date %><br>
+  <%= f.text_field :date, "data-provide" => "datepicker", 'data-date-format'=>"yyyy/mm/dd" %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :participants %><br>
-      <%= f.text_field :participants, class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :participants %><br>
+  <%= f.text_field :participants, class: "form-control" %>
+</div>
 
-    <div class="form-group">
-      <%= f.label :location %><br>
-      <%= f.text_field :location, class: "form-control" %>
-    </div>
+<div class="form-group">
+  <%= f.label :location %><br>
+  <%= f.text_field :location, class: "form-control" %>
+</div>
 
-    <div class="form-group">
-      <%= f.submit class: "btn-success" %>
-    </div>
-  <% end %>
+<div class="form-group">
+  <%= f.submit class: "btn-success" %>
+</div>
+<% end %>
 
