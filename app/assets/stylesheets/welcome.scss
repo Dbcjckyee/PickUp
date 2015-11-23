@@ -27,15 +27,15 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+
 }
-body {
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
-}
+
 .site-footer{
   height: 12%;
 }
+
 .footer-box{
   max-width: 0;
   width: 25%;
