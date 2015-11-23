@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 	require 'textacular'
 	has_and_belongs_to_many :users
-
+  scope :current, -> {where("date >= ?", Date.today)}
   validates :event_name, :sport, :start, :location, presence: true
 
   def creator

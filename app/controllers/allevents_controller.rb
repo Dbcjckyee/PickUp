@@ -1,14 +1,14 @@
 class AlleventsController < ApplicationController
 
   def allevents
-    @events = Event.all
+    @events = Event.current
   end
 
   def update
     if params[:key] == "sport"
-      @eventmatch = Event.where(sport: params[:sport])
+      @eventmatch = Event.current.where(sport: params[:sport])
     elsif params[:key] == "location"
-      @eventmatch = Event.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance") #converts the params into a long/lat sequence and pulls
+      @eventmatch = Event.current.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance") #converts the params into a long/lat sequence and pulls
     elsif params[:key] == "date"
       case params[:date]
       when "week"
@@ -21,7 +21,7 @@ class AlleventsController < ApplicationController
         @eventmatch = Event.where(date: Date.today..1.month.from_now)
       end
     else
-      @eventmatch = Event.all
+      @eventmatch = Event.current
     end
     p @eventmatch
     @eventmatch
