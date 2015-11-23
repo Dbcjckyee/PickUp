@@ -1,27 +1,30 @@
 
 <%= javascript_include_tag 'userlogin/map.js'%>
 
+<div>
+ </div>
+    <h1> <%=@event.event_name%> </h1>
 
-<h1> <%=@event.event_name%> </h1>
+    <div class="table-responsive">
+      <table class="event-table">
+        <tr> <td><b>Event Info: </b></td></tr>
+        <tr> <td> <%= @event.event_name %> </td></tr>
+        <tr> <td> Sport: <%= @event.sport %> </td></tr>
+        <%if @event.description %>
+          <tr> <td> <%= @event.description %> </td></tr>
+        <%end%>
+        <tr> <td> Start: <%= @event.start.strftime("%I:%M %P") %> </td></tr>
+        <%if @event.end %>
+          <tr> <td> End: <%= @event.end %> </td></tr>
+        <%end%>
+        <tr> <td> Date: <%= @event.date.strftime("%m/%d/%Y") %> </td></tr>
+        <tr> <td> Participants: <%= @event.users.size %> / <%=@event.participants%> </td></tr>
+        <tr> <td> Location: <%= @event.location %> </td></tr>
+      </table>
+            <td><%= button_to "Join", join_path(id: @event), class: "btn"%></td>
+    </div>
 
-<div class="table-responsive">
-  <table class="event-table">
-    <tr> <td><b>Event Info: </b></td></tr>
-    <tr> <td> Event Name: <%= @event.event_name %> </td></tr>
-    <tr> <td> Sport: <%= @event.sport %> </td></tr>
-    <tr> <td> Description: <%= @event.description %> </td></tr>
-    <tr> <td> Start: <%= @event.start %> </td></tr>
-    <%if %>
-      <tr> <td> End: <%= @event.end %> </td></tr>
-    <%end%>
-    <tr> <td> Date: <%= @event.date %> </td></tr>
-    <tr> <td> Participants: <%= @event.users.size %> / <%=@event.participants%> </td></tr>
-    <tr> <td> Location: <%= @event.location %> </td></tr>
-  </table>
-        <td><%= button_to "Join", join_path(id: @event), class: "btn"%></td>
-</div>
-
-<div id="map2" style="height: 500px; width: 500px"></div>
+    <div id="map2" style="height: 500px; width: 500px"></div>
 
   <%= content_tag :div, id: "event-info", data: {lat_info: @event.latitude, lng_info: @event.longitude} do %>
   <% end %>
