@@ -20,7 +20,6 @@ $(document).ready(function(){
       lat: position.coords.latitude,
       long: position.coords.longitude
     };
-    console.log(state);
     $('select').val(0);
     $.ajax({
         data: state,

@@ -21,7 +21,7 @@
         <%=event.date%>
       </td>
       <td>
-        <%=event.start%>
+        <%=event.start.strftime("%I:%M %P ")%>
       </td>
     </tr>
   <%end%>

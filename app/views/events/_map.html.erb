@@ -1,42 +1,44 @@
 
   <%= javascript_include_tag 'userlogin/addmarker.js'%>
 
-<div id = "mappp" style="height: 500px"></div>
+<div id = "mappp" style="height: 500px" align="center"></div>
 <table class = "search-results table table-striped">
-<tr>
-<th class="item col-xs-1 centercolumn">Event name</th>
-<th class="item col-xs-1 centercolumn">Activity</th>
-<th class="item col-xs-1 centercolumn">Location</th>
-<th class="item col-xs-1 centercolumn">Date</th>
-<th class="item col-xs-1 centercolumn">Start time</th>
-<th class="item col-xs-1 centercolumn">Display on map</th>
-<th class="item col-xs-1 centercolumn"></th>
-
-</tr>
-<%closeevents.each do |event|%>
   <tr>
-    <td class='centercolumn'>
-    <%=link_to event.event_name, event_path(event)%>
-    </td>
-    <td class='centercolumn'>
-    <%=event.sport%>
-    </td>
-    <td class='centercolumn'>
-    <%=event.location%>
-    </td>
-    <td class='centercolumn'>
-    <%=event.date.strftime("%A %m/%d/%Y")%>
-    </td>
-    <td class='centercolumn'>
-    <%= event.start.strftime("%I:%M %P") %>
-    </td>
-    <td class='centercolumn'>
-        <%= button_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
-        Show
-        <% end %>
-    </td>
-    <td class="col-md-1" id='index_join'><%= button_to "Join", join_path(id: event.id), id: "index_join_button", remote: true%></td>
+
+  <th class="item col-xs-1 centercolumn">Event name</th>
+  <th class="item col-xs-1 centercolumn">Activity</th>
+  <th class="item col-xs-1 centercolumn">Location</th>
+  <th class="item col-xs-1 centercolumn">Date</th>
+  <th class="item col-xs-1 centercolumn">Start time</th>
+  <th class="item col-xs-1 centercolumn">Display on map</th>
+  <th class="item col-xs-1 centercolumn"></th>
+
   </tr>
-<%end%>
+  <%closeevents.each do |event|%>
+    <tr>
+      <td class='centercolumn'>
+      <%=link_to event.event_name, event_path(event)%>
+      </td>
+      <td class='centercolumn'>
+      <%=event.sport%>
+      </td>
+      <td class='centercolumn'>
+      <%=event.location%>
+      </td>
+      <td class='centercolumn'>
+      <%=event.date.strftime("%A %m/%d/%Y")%>
+      </td>
+      <td class='centercolumn'>
+      <%= event.start.strftime("%I:%M %P") %>
+      </td>
+      <td class='centercolumn'>
+          <%= link_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
+          Show
+          <% end %>
+      </td>
+        <td class="col-md-1" id='index_join'><%= button_to "Join", join_path(id: event.id), id: "index_join_button", remote: true%></td>
+    </tr>
+  <%end%>
+</table>
 
 
