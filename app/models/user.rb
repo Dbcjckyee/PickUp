@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   def created_events
     Event.where(creator_id: self.id)
   end
+
+  def self.from_omniauth(auth_hash)
+    user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    user.first_name = auth_hash['info']['name']
+    user.last_name = "twitterman"
+    user.email = "#{auth_hash['info']['nickname']}@twitter.com"
+    user.password = auth_hash['uid']
+    user.save!
+    user
+  end
 end

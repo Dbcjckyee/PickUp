@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   #   end
 
   post 'events/map' => 'events#map'
-
+  get '/auth/twitter/callback', to: 'sessions#create'
   get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
   resources :users, :events

@@ -3,7 +3,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'react-rails', '~> 1.4.0'
 gem 'bcrypt'
-
+gem 'omniauth-twitter'
 gem 'geocoder'
 
 gem 'textacular', '~>3.0'
