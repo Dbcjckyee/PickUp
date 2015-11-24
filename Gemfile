@@ -4,6 +4,7 @@ gem 'autoprefixer-rails'
 gem 'react-rails', '~> 1.4.0'
 gem 'bcrypt'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'responders', '~> 2.0'
 
