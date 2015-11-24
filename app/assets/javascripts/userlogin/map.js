@@ -11,7 +11,7 @@ $(document).ready(function() {
     var marker = new google.maps.Marker({
     map: map2,
     position: {lat: lati, lng: lngi},
-    label: "!"})
+    label: "*"})
   }
   map2 = new initMap()
   navigator.geolocation.getCurrentPosition(function (position) {
