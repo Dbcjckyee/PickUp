@@ -5,6 +5,7 @@ gem 'react-rails', '~> 1.4.0'
 gem 'bcrypt'
 gem 'omniauth-twitter'
 gem 'geocoder'
+gem 'responders', '~> 2.0'
 
 gem 'textacular', '~>3.0'
 

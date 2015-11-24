@@ -8,6 +8,8 @@ Rails.application.config.assets.precompile += %w( userlogin/addmarker.js )
 Rails.application.config.assets.precompile += %w( eventfilters/filtering.js )
 Rails.application.config.assets.precompile += %w( userlogin/map.js )
 
+Rails.application.config.assets.precompile += %w( join_event/join_button.js )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

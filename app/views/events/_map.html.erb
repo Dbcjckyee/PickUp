@@ -4,6 +4,7 @@
 <div id = "mappp" style="height: 500px" align="center"></div>
 <table class = "search-results table table-striped">
   <tr>
+
   <th class="item col-xs-1 centercolumn">Event name</th>
   <th class="item col-xs-1 centercolumn">Activity</th>
   <th class="item col-xs-1 centercolumn">Location</th>
@@ -35,7 +36,7 @@
           Show
           <% end %>
       </td>
-      <td class="col-md-1"><%= button_to "Join", join_path(id: event.id)%></td>
+        <td class="col-md-1" id='index_join'><%= button_to "Join", join_path(id: event.id), id: "index_join_button", remote: true%></td>
     </tr>
   <%end%>
 </table>
