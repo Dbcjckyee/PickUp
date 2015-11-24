@@ -1,13 +1,14 @@
 class EventsController < ApplicationController
     before_action :current_user, :require_user, only: [:index, :show, :new, :edit]
 
-
   def index
     @events = Event.current
     @user = current_user
+
   end
 
   def join
+    p params
     @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
     unless @event.users.exists?(@new_user)

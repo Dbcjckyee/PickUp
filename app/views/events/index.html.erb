@@ -1,5 +1,5 @@
 
-  <%= javascript_include_tag 'userlogin/geolocate.js'%>
+  <%= javascript_include_tag 'userlogin/geolocate.js', 'join_event/join_button.js'%>
 
 
   <div class="row">
@@ -9,7 +9,11 @@
       <%= button_to "See all events", allevents_path, method: "get", class: "btn-info pull-right" %>
     </div>
   </div>
-  
+
 <div class="row">
   <div id = "nearevents"></div>
+</div>
+
+<div class="idk" style="display: none;">
+
 </div>
