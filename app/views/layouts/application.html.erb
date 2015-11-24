@@ -11,14 +11,20 @@
   <body>
     <div class="navbar-default navbar-inverse">
       <% if @current_user %>
-        <%= link_to 'Home', events_path, class: " btn navbar-btn"%>
-        <%= link_to "Profile", user_path(@current_user), class: "btn navbar-btn" %>
-        <%= link_to "Logout", logout_path, method: "delete", class: "btn navbar-btn" %>
-         <%= link_to "Hi, #{@current_user.first_name.capitalize}!", user_path(current_user), class: " btn navbar-btn pull-right" %>
+      <table>
+        <tr>
+        <td><%= link_to 'Home', events_path, class: " btn navbar-btn"%></td>
+        <td><%= link_to "Profile", user_path(@current_user), class: "btn navbar-btn" %></td>
+        <td><%= link_to "Logout", logout_path, method: "delete", class: "btn navbar-btn" %></td>
+        <td><%= link_to "About", 'about', class: "btn navbar-btn" %></td>
+        <td><%= render 'search/new' %></td>
+        <td><%= link_to "Hi, #{@current_user.first_name.capitalize}!", user_path(current_user), class: " btn navbar-btn pull-right" %></td>
+      </table>
       <% else %>
         <%= link_to 'Home', root_path, class: " btn navbar-btn" %>
         <%= link_to "Login", 'login', class: "btn navbar-btn" %>
         <%= link_to "Signup", 'signup', class: "btn navbar-btn" %>
+        <%= link_to "About", 'about', class: "btn navbar-btn" %>
   		<% end %>
   	</div>
 
