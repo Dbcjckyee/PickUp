@@ -12,7 +12,13 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth_hash)
     user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
-    user.first_name = auth_hash['info']['name']
+    fullname = auth_hash['info']['name'].split(" ")
+    user.first_name = fullname[0]
+    if fullname.length > 1
+      user.last_name = fullname[1..fullname.length-1].join(" ")
+    else
+      user.last_name = " "
+    end
     user.email = "#{auth_hash['uid']}@#{auth_hash['provider']}.com"
     user.password = auth_hash['uid']
     # user.url = auth_hash['info']['urls'][user.provider.capitalize]

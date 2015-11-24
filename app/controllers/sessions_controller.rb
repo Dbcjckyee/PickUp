@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
 
 	def create
 		if request.env['omniauth.auth']
-   puts request.env['omniauth.auth'].to_yaml
-			# @user = User.from_omniauth(request.env['omniauth.auth'])
-   #  	session[:user_id] = @user.id
-   #  	redirect_to events_path
+		  puts request.env['omniauth.auth'].to_yaml
+			@user = User.from_omniauth(request.env['omniauth.auth'])
+    	session[:user_id] = @user.id
+    	redirect_to events_path
 		else
 			@user = User.find_by_email(params[:session][:email])
 			if @user && @user.authenticate(params[:session][:password])

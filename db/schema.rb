@@ -45,13 +45,8 @@ ActiveRecord::Schema.define(version: 20151124180120) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
-    t.string   "image"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "provider"
     t.string   "uid"
   end
