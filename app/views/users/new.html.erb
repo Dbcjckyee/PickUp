@@ -13,6 +13,11 @@
 			<p> <%= f.password_field :password, :placeholder => "Password" , class: "form-control"%></p>
 			<p> <%= f.submit "Sign up", class: "btn btn-success" %></p>
 	<% end %>
+	<div >
+		<h7>Or Login with: </h7>
+		<div class="social-button"><%= link_to image_tag("facebook.png"), '/auth/facebook'%></div><br>
+    <div class="social-butoon"><%= link_to image_tag("twitter.png"), '/auth/twitter'%></div>
+  </div>
 </div>
 
 
