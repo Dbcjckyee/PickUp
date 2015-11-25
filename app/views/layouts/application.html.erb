@@ -28,13 +28,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if @current_user %>
-        <form class="navbar-form navbar-left" role="search">
+        <div class="navbar-form navbar-left" role="search">
           <div class="input-group">
             <div>
               <%=render 'search/new'%>
             </div>
           </div>
-        </form>
+        </div>
           <% end %>
         <ul class="nav navbar-nav">
         </ul>
