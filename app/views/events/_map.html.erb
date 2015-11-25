@@ -7,11 +7,10 @@
 
   <th class="item col-xs-1 centercolumn">Event name</th>
   <th class="item col-xs-1 centercolumn">Activity</th>
-  <th class="item col-xs-1 centercolumn">Location</th>
-  <th class="item col-xs-1 centercolumn">Date</th>
+  <th class="item col-xs-2 centercolumn">Location</th>
+  <th class="item col-xs-2 centercolumn">Date</th>
   <th class="item col-xs-1 centercolumn">Start time</th>
   <th class="item col-xs-1 centercolumn">Display on map</th>
-  <th class="item col-xs-1 centercolumn"></th>
 
   </tr>
   <%closeevents.each do |event|%>
@@ -36,9 +35,7 @@
           Show
           <% end %>
       </td>
-        <td class="col-md-1" id='index_join'><%= button_to "Join", join_path(id: event.id), id: "index_join_button", remote: true%></td>
     </tr>
   <%end%>
 </table>
-
 
