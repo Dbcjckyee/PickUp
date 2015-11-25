@@ -12,7 +12,8 @@
       <div class="table">
         <table class="event-table" style>
           <tr> <td><b>Event Details: </b></td></tr>
-          <tr> <td> Sport: <%= @event.sport %> </td></tr>
+          <tr> <td> Host: <%= @event.creator.first_name.capitalize %> </td></tr>
+          <tr> <td> Sport: <%= @event.sport %> </td></tr> 
           <%if @event.description %>
           <tr> <td> Description: <%= @event.description %> </td></tr>
           <%end%>
