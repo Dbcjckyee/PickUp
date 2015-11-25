@@ -1,25 +1,33 @@
 
   <%= javascript_include_tag 'userlogin/addmarker.js'%>
-    <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-      <div id = "mappp" style="height: 500px" align="center"></div>
-    </div><!--/left-->
   <div class="row">
-        <!--left-->
-  <div class="container text-center col-lg-6">
+    <div id = "mappp" style="height: 500px" align="center"></div>
+  </div>
+  <div class="row text-center ">
     <div class="item col-lg-2">Event name</div>
     <div class="item col-lg-2">Activity</div>
     <div class="item col-lg-2">Location</div>
-
+    <div class="item col-lg-2">Date</div>
+    <div class="item col-lg-1">Start time</div>
+    <div class="item col-lg-2">Display on map</div>
+    <div class="item col-lg-1"></div>
   </div>
   <%closeevents.each do |event|%>
-  </div>
-  <div class="col-lg-6">
     <div class="row text-center">
       <div class='item col-lg-2'>
         <%=link_to event.event_name, event_path(event)%>
       </div>
       <div class='item col-lg-2'>
         <%=event.sport%>
+      </div>
+      <div class='item col-lg-2'>
+        <%=event.location%>
+      </div>
+      <div class='item col-lg-2'>
+        <%=event.date.strftime("%A %m/%d/%Y")%>
+      </div>
+      <div class='item col-lg-1'>
+        <%= event.start.strftime("%I:%M %P") %>
       </div>
       <div class='item col-lg-2'>
         <%= link_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
@@ -29,6 +37,4 @@
       <div class="col-lg-1" id='index_join'><%= button_to "Join", join_path(id: event.id), id: "index_join_button", remote: true%></div>
     </div>
   <%end%>
-
-    <div container=""></div>
 
