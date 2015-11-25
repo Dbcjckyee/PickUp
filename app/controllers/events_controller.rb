@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def join
+
     respond_to do |x|
       x.js
     end

@@ -207,7 +207,8 @@ body {
 .about-us { 
   color: white;
   background-size: cover;
-  background-image: url(http://farm1.static.flickr.com/229/490256380_810f65a7e5.jpg);
+  background-image: image-url("court.jpg");
+  background-repeat: repeat-y;
 }
 
 #team-pic {
@@ -216,4 +217,7 @@ body {
 
 .about-body p {
   text-align: center
+}
+
+.about-footer {
 }
