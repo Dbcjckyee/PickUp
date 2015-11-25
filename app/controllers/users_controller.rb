@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :current_user
+	before_action :current_user 
 	def index
 	end
 
@@ -8,9 +8,9 @@ class UsersController < ApplicationController
 		@events = @user.events
 		@event = Event.current
 
-		if @user
-			render 'show'
+		if @user && @user == current_user
 		else
+			flash[:notice] = "Access Denied."
 			redirect_to '/'
 		end
 	end
