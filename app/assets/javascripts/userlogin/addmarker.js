@@ -3,7 +3,7 @@ $(document).ready(function() {
     event.preventDefault();
     var lat = $(this).data('lat')
     var long = $(this).data('long')
-    $('tr').removeClass("highlight")
+    $('div').removeClass("highlight")
     $(this).parent().parent().addClass("highlight")
     // debugger
     // console.log(lat)
