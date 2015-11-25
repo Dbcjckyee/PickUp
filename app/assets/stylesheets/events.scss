@@ -62,6 +62,7 @@ table {
 
 #page-content-wrapper {
   width: 100%;
+  right: 25%;
 }
 
 .sidebar-nav {
@@ -97,13 +98,15 @@ table {
 body {
   padding-top: 50px;
 }
-div#mappp {
-  height: 100%;
-}
+
 div.event-card {
+  padding-bottom: 1px;
   background-color: yellow;
-  border: 5px solid red;
+  border: 20px solid red;
   padding: 10px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 70px;
 }
 
 div.soccer {
