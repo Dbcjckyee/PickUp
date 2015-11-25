@@ -1,17 +1,17 @@
 
 <div id="signup-form" class="container">
-	<h1>Sign up!</h1>
+	<h3>Welcome to Pickup, please sign up to create an account</h3>
 
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
 
 		<%= form_for @user do |f| %>
-			<p> <%= f.text_field :first_name, :placeholder => "First Name" %></p>
-			<p> <%= f.text_field :last_name, :placeholder => "Last Name" %></p>
-			<p> <%= f.email_field :email, :placeholder => "Email" %></p>
-			<p> <%= f.password_field :password, :placeholder => "Password" %></p>
-			<p> <%= f.submit "Sign up" %></p>
+			<p> <%= f.text_field :first_name, :placeholder => "First Name", class: "form-control" %></p>
+			<p> <%= f.text_field :last_name, :placeholder => "Last Name", class: "form-control" %></p>
+			<p> <%= f.email_field :email, :placeholder => "Email" , class: "form-control"%></p>
+			<p> <%= f.password_field :password, :placeholder => "Password" , class: "form-control"%></p>
+			<p> <%= f.submit "Sign up", class: "btn btn-success" %></p>
 	<% end %>
 </div>
 

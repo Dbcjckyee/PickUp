@@ -11,6 +11,7 @@ before_action :current_user
   end
 
   def about
+  	@events =Event.current.near("San Francisco").sample(3)
   end
 
 end
