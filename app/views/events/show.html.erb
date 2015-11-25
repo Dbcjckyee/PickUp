@@ -25,7 +25,7 @@
           <tr> <td> Location: <%= @event.location.upcase %> </td></tr>
         </table>
         <div class="panel panel-default">
-          <div class="panel-heading">Attending</div>
+          <div class="panel-heading"><b>Attending: </b></div>
             <ul class="list-group">
               <% @event.users.each do |e| %>
               <li class="list-group-item"><%= e.first_name.capitalize%> <%= e.last_name[0].capitalize%>. email: <%=e.email%></li>
@@ -33,7 +33,7 @@
             </ul>
           </div>
            <%if @event.users.where(id: current_user.id).length == 0 %>
-            <td class="col-md-1" id='index_join'><%= button_to "Join", join_path(id: @event.id), id: "index_join_button", remote: true%></td>
+            <td class="col-md-1" id='index_join'><%= button_to "Join", join_path(id: @event.id), id: "index_join_button"%></td>
           <% else %>
               <td class="col-md-1"><%= button_to "leave", leave_path(id: @event.id), method: "put" %></td>
           <% end %>
@@ -45,6 +45,10 @@
     </div>
   </div>
 </div>
+
+<%if flash[:notice]%>
+  <div class="flash-error"><h3><%= flash[:notice]%></h3></div>
+<% end %>
 
 <%= content_tag :div, id: "event-info", data: {lat_info: @event.latitude, lng_info: @event.longitude} do %>
 <% end %>

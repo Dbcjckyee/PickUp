@@ -8,10 +8,7 @@ class UsersController < ApplicationController
 		@events = @user.events
 		@event = Event.current
 
-		if @user && @user = current_user
-			p"*" * 100
-			p @user
-			render 'show'
+		if @user && @user == current_user
 		else
 			flash[:notice] = "Access Denied."
 			redirect_to '/'
