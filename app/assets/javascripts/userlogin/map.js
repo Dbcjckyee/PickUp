@@ -15,7 +15,7 @@ $(document).ready(function() {
   }
   map2 = new initMap()
   navigator.geolocation.getCurrentPosition(function (position) {
-    initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    initialLocation = new google.maps.LatLng($('#event-info').data('latInfo'), $('#event-info').data('lngInfo'));
     map2.setCenter(initialLocation)
   });
   dropEventMarker($('#event-info').data('latInfo'), $('#event-info').data('lngInfo'))
