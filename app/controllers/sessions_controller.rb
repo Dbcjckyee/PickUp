@@ -4,13 +4,20 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		@user = User.find_by_email(params[:session][:email])
-		if @user && @user.authenticate(params[:session][:password])
-			session[:user_id] = @user.id
-			redirect_to events_path
+		if request.env['omniauth.auth']
+		  puts request.env['omniauth.auth'].to_yaml
+			@user = User.from_omniauth(request.env['omniauth.auth'])
+    	session[:user_id] = @user.id
+    	redirect_to events_path
 		else
-			flash[:notice] = "Username or Password was incorrect. Try Again."
-			redirect_to login_path
+			@user = User.find_by_email(params[:session][:email])
+			if @user && @user.authenticate(params[:session][:password])
+				session[:user_id] = @user.id
+				redirect_to events_path
+			else
+				flash[:notice] = "Username or Password was incorrect. Try Again."
+				redirect_to login_path
+			end
 		end
 	end
 
