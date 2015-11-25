@@ -51,27 +51,19 @@
 <tr>
 <th class="item col-xs-1 centercolumn">Event name</th>
 <th class="item col-xs-1 centercolumn">Activity</th>
+<th class="item col-xs-1 centercolumn">Participant numbers</th>
 <th class="item col-xs-1 centercolumn">Location</th>
 <th class="item col-xs-1 centercolumn">Date</th>
 <th class="item col-xs-1 centercolumn">Start time</th>
 </tr>
   <%@events.each do |event|%>
     <tr>
-      <td>
-        <%=link_to event.event_name, event_path(event)%>
-      </td>
-      <td>
-        <%=event.sport%>
-      </td>
-      <td>
-        <%=event.location%>
-      </td>
-      <td>
-        <%=event.date.strftime("%A %m/%d/%Y")%>
-      </td>
-      <td>
-        <%=event.start.strftime("%I:%M %P")%>
-      </td>
+      <td><%=link_to event.event_name, event_path(event)%></td>
+      <td><%=event.sport%></td>
+      <td><%=event.users.size %> / <%= event.participants %> </td>
+      <td><%=event.location%></td>
+      <td><%=event.date.strftime("%A %m/%d/%Y")%></td>
+      <td><%=event.start.strftime("%I:%M %P")%></td>
     </tr>
   <%end%>
 </table>
