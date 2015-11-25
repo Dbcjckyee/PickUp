@@ -12,7 +12,7 @@
 
 
 
-  <nav class="navbar navbar-default navbar-inverse">
+  <nav class="navbar navbar-fixed-top navbar-inverse" id="the-navbar">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -45,6 +45,7 @@
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, <%=@current_user.first_name.capitalize%> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li class="text-center"><%= link_to "My Profile", user_path(@current_user)%></li>
+                  <li class="text-center"><%= link_to "About", about_path %> </li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "Logout", logout_path, method: "delete", class: "btn navbar-btn" %></li>
                 </ul>
@@ -59,6 +60,12 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
+  <header>
+    <%if flash[:notice]%> 
+      <%= flash[:notice]%>
+    <% end %>
+  </header>
 
 
 
