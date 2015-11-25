@@ -1,41 +1,38 @@
 
   <%= javascript_include_tag 'userlogin/addmarker.js'%>
 
-<div id = "mappp" style="height: 500px" align="center"></div>
-<table class = "search-results table table-striped">
-  <tr>
-
-  <th class="item col-xs-1 centercolumn">Event name</th>
-  <th class="item col-xs-1 centercolumn">Activity</th>
-  <th class="item col-xs-2 centercolumn">Location</th>
-  <th class="item col-xs-2 centercolumn">Date</th>
-  <th class="item col-xs-1 centercolumn">Start time</th>
-  <th class="item col-xs-1 centercolumn">Display on map</th>
-
-  </tr>
+  <div class="row">
+    <div id = "mappp" style="height: 500px" align="center"></div>
+  </div>
+  <div class="row text-center ">
+    <div class="item col-lg-2">Event name</div>
+    <div class="item col-lg-2">Activity</div>
+    <div class="item col-lg-2">Location</div>
+    <div class="item col-lg-2">Date</div>
+    <div class="item col-lg-1">Start time</div>
+    <div class="item col-lg-2">Display on map</div>
+  </div>
   <%closeevents.each do |event|%>
-    <tr>
-      <td class='centercolumn'>
-      <%=link_to event.event_name, event_path(event)%>
-      </td>
-      <td class='centercolumn'>
-      <%=event.sport%>
-      </td>
-      <td class='centercolumn'>
-      <%=event.location%>
-      </td>
-      <td class='centercolumn'>
-      <%=event.date.strftime("%A %m/%d/%Y")%>
-      </td>
-      <td class='centercolumn'>
-      <%= event.start.strftime("%I:%M %P") %>
-      </td>
-      <td class='centercolumn'>
-          <%= link_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
-          Show
-          <% end %>
-      </td>
-    </tr>
+    <div class="row text-center">
+      <div class='item col-lg-2'>
+        <%=link_to event.event_name, event_path(event)%>
+      </div>
+      <div class='item col-lg-2'>
+        <%=event.sport%>
+      </div>
+      <div class='item col-lg-2'>
+        <%=event.location%>
+      </div>
+      <div class='item col-lg-2'>
+        <%=event.date.strftime("%A %m/%d/%Y")%>
+      </div>
+      <div class='item col-lg-1'>
+        <%= event.start.strftime("%I:%M %P") %>
+      </div>
+      <div class='item col-lg-2'>
+        <%= link_to "", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
+        Show
+        <% end %>
+      </div>
   <%end%>
-</table>
 
