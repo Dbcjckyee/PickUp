@@ -10,7 +10,6 @@ before_action :current_user
   end
 
   def search
-    puts "FDJFDSDKJFLDSJF"
     redirect_to search_path(params)
   end
 end
