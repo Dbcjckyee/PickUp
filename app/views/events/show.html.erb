@@ -28,7 +28,7 @@
           <div class="panel-heading">Attending</div>
             <ul class="list-group">
               <% @event.users.each do |e| %>
-              <li class="list-group-item"><%= e.first_name.capitalize%> <%= e.last_name[0].capitalize%>. <%= e.email %></li>
+              <li class="list-group-item"><%= e.first_name.capitalize%> <%= e.last_name[0].capitalize%>. email: <%=e.email%></li>
               <% end %>
             </ul>
           </div>
