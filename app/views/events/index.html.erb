@@ -1,19 +1,18 @@
   <%= javascript_include_tag 'userlogin/geolocate.js'%>
 
-  <table>
-	  	<thead>
+  <div class="row">
+  	<div class="col-lg-6 text-left">
+  		<div class="event-buttons"><h2>Events near you:</h2></div>
+    </div>
+    <div class="col-lg-6 text-right">
+	  	<div class="event-buttons pull-right"><%= button_to "Create an event", new_event_path, method: "get", class: "btn-success" %></div>
+      <div class="event-buttons"><%= button_to "See all events", allevents_path, method: "get", class: "btn-info" %></div>
+    </div>
+  </div>
 
-	  	</thead>
+  <div class="row">
 
-	  	<tbody>
-	  		<td class="event-buttons"><h2>Events near you:</h2></td>
-		  	<td class="event-buttons pull-right"><%= button_to "Create an event", new_event_path, method: "get", class: "btn-success" %></td><td class="event-buttons pull-right"><%= button_to "See all events", allevents_path, method: "get", class: "btn-info" %></td>
-	  	</tbody>
-  </table>
-<div class="row">
-  <div id = "nearevents"></div>
-</div>
+    <div id = "nearevents"></div>
+  </div>
 
-<div class="idk" style="display: none;">
-
-</div>
+  <div class="idk" style="display: none;"></div>
