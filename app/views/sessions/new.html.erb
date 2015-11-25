@@ -10,10 +10,11 @@
       <%= form_for(:session, url: login_path) do |f| %>
         <%= f.email_field :email, :placeholder => "Email", class: "form-control"%><br>
         <%= f.password_field :password, :placeholder => "Password", class: "form-control"%> <br>
-        <%= f.submit "Log in",  class: "btn btn-success"%>
+        <%= f.submit "Log in",  class: "btn btn-success", "style" => "width: 180px"%>
       <% end %>
     </div>
+    <div class="social-button"><%= link_to image_tag("facebook.png"), '/auth/facebook'%></div><br>
+    <div class="social-butoon"><%= link_to image_tag("twitter.png"), '/auth/twitter'%></div>
   </div>
 </div>
-
 
