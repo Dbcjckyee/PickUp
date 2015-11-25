@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   #   end
 
   post 'events/map' => 'events#map'
+  get '/auth/twitter/callback', to: 'sessions#create'
+  get '/auth/facebook/callback', to: 'sessions#create'
+  # get '/auth/twitter/callback?denied*', to: 'welcome#index'
 
   get 'about' => 'welcome#about'
   get 'signup' => 'users#new'
@@ -77,4 +80,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  # match "*path", to: "welcome#index", via: :all
+
 end
