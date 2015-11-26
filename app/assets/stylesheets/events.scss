@@ -32,7 +32,7 @@ table {
 }
 
 
-.new_event { 
+.new_event {
 	border: 2px solid black;
 	padding: 30px;
 }
@@ -62,6 +62,7 @@ table {
 
 #page-content-wrapper {
   width: 100%;
+  right: 25%;
 }
 
 .sidebar-nav {
@@ -97,10 +98,81 @@ table {
 body {
   padding-top: 50px;
 }
-div#mappp {
-  height: 100%;
+div.event-card a {
+  margin-left: 0;
+  margin-right: 0;
 }
-div.mapppp {
-  height: 100%;
+
+div.event-card {
+  padding-bottom: 1px;
+  padding: 10px;
+  height: 300px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 70px;
+  color: white;
+  border-radius: 5%;
+  background-size: cover;
+  color: white;
+  opacity: .9;
+  text-size: 100px;
+  color: white;
+  // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  // -webkit-text-stroke-width: 1px;
+  // -webkit-text-stroke-color: black;
+}
+div.nearby-event-page a:link {
+  color: white;
+}
+div.nearby-event-page a:hover{
+  opacity: .8;
+}
+div.nearby-event-page a:visited {
+  color: white;
+}
+
+div#Basketball {
+  background-image: image-url('Basketball.jpg');
+}
+div#Tennis {
+  background-image: image-url('tennis_2.jpg');
+}
+div#Golf {
+  background-image: image-url('Golf.jpg');
+}
+div#Baseball {
+  background-image: image-url('Baseball.jpg');
+}
+div#Bowling {
+  background-image: image-url('Bowling.jpg');
+}
+div#Other {
+  background-image: image-url('Pingpong.jpg');
+}
+div#Soccer {
+  background-image: image-url('Soccer.jpg');
+}
+div.container {
+  width: 100%
+}
+a.showme.glyphicon.glyphicon-map-marker {
+color: rgba(215, 40, 40, 0.9);
+  font-size: 50px;
+  margin-right: auto;
+  margin-left: auto;
+    margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pinnn {
+  position: absolute;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a.test {
+  background-color: black;
 }
 

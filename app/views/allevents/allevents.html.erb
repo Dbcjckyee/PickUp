@@ -1,69 +1,73 @@
-  <%= javascript_include_tag 'eventfilters/filtering.js'%>
+<%= javascript_include_tag 'eventfilters/filtering.js'%>
 
-<table id="filters">
-  <tr>
-    <td>
-    Sport
-    <br>
-    <select name="sportmenu" id="sport">
-      <option value="start"></option>
-      <option value="Baseball">Baseball</option>
-      <option value="Basketball">Basketball</option>
-      <option value="Bowling">Bowling</option>
-      <option value="Field Hockey">Field Hockey</option>
-      <option value="Football">Football</option>
-      <option value="Golf">Golf</option>
-      <option value="Soccer">Soccer</option>
-      <option value="Tennis">Tennis</option>
-      <option value="Volleyball">Volleyball</option>
-      <option value="Misc">Misc</option>
 
-    </select>
-    </td>
-    <td>
-    Distance
-    <br>
-    <select name="locationmenu" id="location">
-      <option value="start"></option>
-      <option value="5">Under 5 miles</option>
-      <option value="20">Under 20 miles</option>
-      <option value="40">Under 40 miles</option>
-      <option value="100">Under 100 miles</option>
-    </select>
-    </td>
-    <td>
-    Event Start
-    <br>
-    <select name="datemenu" id="date">
-      <option value="start"></option>
-      <option value="Date.today..1.week.from_now">This week</option>
-      <option value="Date.today..2.weeks.from_now">In the next two weeks</option>
-      <option value="Date.today..3.weeks.from_now">In the next three weeks</option>
-      <option value="Date.today..1.month.from_now">In a month</option>
-    </select>
-    </td>
-    <td>
-    <%=link_to 'Remove Filter', allevents_path, :id => 'clear' %>
-    </td>
-  </tr>
-</table>
-<table id ="allevents">
-<tr>
-<th class="item col-xs-1 centercolumn">Event name</th>
-<th class="item col-xs-1 centercolumn">Activity</th>
-<th class="item col-xs-1 centercolumn">Participant numbers</th>
-<th class="item col-xs-1 centercolumn">Location</th>
-<th class="item col-xs-1 centercolumn">Date</th>
-<th class="item col-xs-1 centercolumn">Start time</th>
-</tr>
-  <%@events.each do |event|%>
+  <table id="filters">
     <tr>
-      <td><%=link_to event.event_name.capitalize, event_path(event)%></td>
-      <td><%=event.sport%></td>
-      <td><%=event.users.size %> / <%= event.participants %> </td>
-      <td><%=event.location%></td>
-      <td><%=event.date.strftime("%A %m/%d/%Y")%></td>
-      <td><%=event.start.strftime("%I:%M %P")%></td>
+      <td>
+      Sport
+      <br>
+      <select name="sportmenu" id="sport">
+        <option value="start"></option>
+        <option value="Baseball">Baseball</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Bowling">Bowling</option>
+        <option value="Field Hockey">Field Hockey</option>
+        <option value="Football">Football</option>
+        <option value="Golf">Golf</option>
+        <option value="Soccer">Soccer</option>
+        <option value="Tennis">Tennis</option>
+        <option value="Volleyball">Volleyball</option>
+        <option value="Misc">Misc</option>
+
+      </select>
+      </td>
+      <td>
+      Distance
+      <br>
+      <select name="locationmenu" id="location">
+        <option value="start"></option>
+        <option value="5">Under 5 miles</option>
+        <option value="20">Under 20 miles</option>
+        <option value="40">Under 40 miles</option>
+        <option value="100">Under 100 miles</option>
+      </select>
+      </td>
+      <td>
+      Event Start
+      <br>
+      <select name="datemenu" id="date">
+        <option value="start"></option>
+        <option value="Date.today..1.week.from_now">This week</option>
+        <option value="Date.today..2.weeks.from_now">In the next two weeks</option>
+        <option value="Date.today..3.weeks.from_now">In the next three weeks</option>
+        <option value="Date.today..1.month.from_now">In a month</option>
+      </select>
+      </td>
+      <td>
+      <%=link_to 'Remove Filter', allevents_path, :id => 'clear' %>
+      </td>
     </tr>
-  <%end%>
-</table>
+  </table>
+<div class="">
+  <table class="table table-striped table-condensed table-responsive" id ="allevents">
+  <tr>
+    <th class="item col-lg-2 centercolumn">Event name</th>
+    <th class="item col-lg-2 centercolumn">Activity</th>
+    <th class="item col-lg-2 centercolumn">Participant numbers</th>
+    <th class="item col-lg-2 centercolumn">Location</th>
+    <th class="item col-lg-2 centercolumn">Date</th>
+    <th class="item col-lg-2 centercolumn">Start time</th>
+  </tr>
+    <%@events.each do |event|%>
+      <tr>
+        <td><%=link_to event.event_name, event_path(event)%></td>
+        <td><%=event.sport%></td>
+        <td><%=event.users.size %> / <%= event.participants %> </td>
+        <td><%=event.location.upcase%></td>
+        <td><%=event.date.strftime("%A %m/%d/%Y")%></td>
+        <td><%=event.start.strftime("%I:%M %P")%></td>
+      </tr>
+    <%end%>
+  </table>
+</div>
+
