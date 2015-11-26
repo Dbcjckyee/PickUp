@@ -104,12 +104,43 @@ div.event-card {
   background-color: yellow;
   border: 20px solid red;
   padding: 10px;
+  height: 300px;
   margin-bottom: 50px;
   margin-top: 50px;
   margin-left: 70px;
 }
 
-div.soccer {
-  background-color: blue;
+div.event-card {
+  background-size: cover;
+  color: white;
+  opacity: .8;
+  text-size: 40px;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
-
+.col-lg-10 a:link, a:visited, a:active {
+  color: white;
+}
+div#Basketball {
+  background-image: image-url('Basketball.jpg');
+}
+div#Tennis {
+  background-image: image-url('tennis_2.jpg');
+}
+div#Golf {
+  background-image: image-url('Golf.jpg');
+}
+div#Baseball {
+  background-image: image-url('Baseball.jpg');
+}
+div#Bowling {
+  background-image: image-url('Bowling.jpg');
+}
+div#Other {
+  background-image: image-url('Pingpong.jpg');
+}
+div#Soccer {
+  background-image: image-url('Soccer.jpg');
+}

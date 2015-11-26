@@ -67,4 +67,10 @@ markersArray = [];
   //   setMapOnAll(null);
   // }
 
+  //   function cardBackground() {
+  //   $("div:contains('Hello')").css('text-decortation', 'underline');
+  // }
+
+  // cardBackground();
+
 });
