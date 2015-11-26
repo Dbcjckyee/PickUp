@@ -24,6 +24,7 @@ describe "Event", js: true do
 				fill_in "event_date", with: new_event.date
 				fill_in "event_participants", with: new_event.participants
 				fill_in "event_location", with: new_event.location
+				click_on "Create Event"
 				expect(page).to have_content("Hi,")
 			end
 	end
