@@ -10,14 +10,14 @@
             <p class="lead">
               <%=link_to 'Register', new_user_path, class:"btn btn-lg btn-default spacer"%>
 
-              <%=link_to 'Login', login_path, class:"btn btn-lg btn-default spacer"%>
+              <%=link_to 'Login', login_path, class:"btn btn-lg btn-default spacer logmein"%>
             </p>
             <p class="lead text-shadow-format">A whole new way to find activities
             </p>
             <p class="lead">
               <%=link_to 'Learn More', about_path, class:"btn btn-lg btn-default"%>
             </p>
-            
+
           </div>
 
 
@@ -49,3 +49,23 @@
     </tr>
   </table>
 </div>
+
+<div id="login" class="hidden">
+  <div class="container">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
+    <div class="form-group">
+      <h4>Please login<h4>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.email_field :email, :placeholder => "Email", class: "form-control"%><br>
+        <%= f.password_field :password, :placeholder => "Password", class: "form-control"%> <br>
+        <%= f.submit "Log in",  class: "btn btn-success", "style" => "width: 180px"%>
+      <% end %>
+    </div>
+    <div class="social-button"><%= link_to image_tag("facebook.png"), '/auth/facebook'%></div><br>
+    <div class="social-butoon"><%= link_to image_tag("twitter.png"), '/auth/twitter'%></div>
+  </div>
+</div>
+

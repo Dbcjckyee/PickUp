@@ -222,3 +222,18 @@ body {
 .about-footer {
 }
 
+#login {
+  margin: auto;
+  width: 300px;
+  border:3px solid black;
+  padding: 10px;
+  position: absolute;
+  left:50%;
+  margin-left: -150px;
+  background-color: white;
+  top:30%;
+}
+
+.hidden{
+  display: none;
+}
