@@ -63,7 +63,7 @@
         <td><%=link_to event.event_name, event_path(event)%></td>
         <td><%=event.sport%></td>
         <td><%=event.users.size %> / <%= event.participants %> </td>
-        <td><%=event.location%></td>
+        <td><%=event.location.upcase%></td>
         <td><%=event.date.strftime("%A %m/%d/%Y")%></td>
         <td><%=event.start.strftime("%I:%M %P")%></td>
       </tr>

@@ -1,6 +1,6 @@
-
+<br>
 <div id="signup-form" class="container">
-	<h3>Welcome to Pickup, please sign up to create an account</h3>
+	<h3>Welcome to Pickup! Please sign up to create an account.</h3>
 
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
@@ -15,6 +15,7 @@
 	<% end %>
 	<div >
 		<h7>Or Login with: </h7>
+    <br>
 		<div class="social-button"><%= link_to image_tag("facebook.png"), '/auth/facebook'%></div><br>
     <div class="social-butoon"><%= link_to image_tag("twitter.png"), '/auth/twitter'%></div>
   </div>
