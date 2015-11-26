@@ -6,12 +6,18 @@
     </div>
     <div id="page-content-wrapper">
       <div class="row col-lg-12">
-        <div class="col-lg-6 text-left">
-          <div class="event-buttons"><h2>Events near you:</h2></div>
+        <div class="col-lg-1 text-right">
         </div>
-        <div class="col-lg-6 text-right">
-          <div class="event-buttons pull-right"><%= button_to "Create an event", new_event_path, method: "get", class: "btn-success" %></div>
-          <div class="event-buttons"><%= button_to "See all events", allevents_path, method: "get", class: "btn-info" %></div>
+        <div class="col-lg-5 text-left">
+          <div class="event-buttons"><h1>Events near you:</h1></div>
+        </div>
+        <div class="col-lg-3 text-right">
+        </div>
+        <div class="col-lg-2">
+          <div class="event-buttons pull-right"><%= button_to "Create an event", new_event_path, method: "get", class: "" %>
+          <%= button_to "See all events", allevents_path, method: "get", class: "" %></div>
+        </div>
+        <div class="col-lg-1 text-right">
         </div>
       </div>
       <div class="page-content">
@@ -20,6 +26,9 @@
               <%closeevents.each do |event|%>
                 <div class="col-lg-5 event-card" id="<%=event.sport%>" href="event">
                   <h1><%=link_to event.event_name, event_path(event)%></h1>
+                  <h5 class="eventcard">
+                    <%=event.sport%>
+                  </h5>
                   <h2 class=" pinnn">
                     <%= link_to "Show", class: "showme glyphicon glyphicon-map-marker", data: {lat: event.latitude, long: event.longitude} do %>
                   <% end %>

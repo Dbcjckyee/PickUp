@@ -1,4 +1,4 @@
-<table id ="allevents">
+<table class="table table-striped" id ="allevents">
   <tr>
 <th class="item col-xs-1 centercolumn">Event name</th>
 <th class="item col-xs-1 centercolumn">Activity</th>
@@ -18,7 +18,7 @@
         <%=event.location%>
       </td>
       <td>
-        <%=event.date%>
+        <%=event.date.strftime("%A %m/%d/%Y")%>
       </td>
       <td>
         <%=event.start.strftime("%I:%M %P ")%>

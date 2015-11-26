@@ -98,31 +98,39 @@ table {
 body {
   padding-top: 50px;
 }
+div.event-card a {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 div.event-card {
   padding-bottom: 1px;
-  background-color: yellow;
-  border: 20px solid red;
   padding: 10px;
   height: 300px;
   margin-bottom: 50px;
   margin-top: 50px;
   margin-left: 70px;
-}
-
-div.event-card {
+  color: white;
+  border-radius: 5%;
   background-size: cover;
   color: white;
-  opacity: .8;
-  text-size: 40px;
-  color: black;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  opacity: .9;
+  text-size: 100px;
+  color: white;
+  // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  // -webkit-text-stroke-width: 1px;
+  // -webkit-text-stroke-color: black;
 }
-.col-lg-10 a:link, a:visited, a:active {
+div.nearby-event-page a:link {
   color: white;
 }
+div.nearby-event-page a:hover{
+  opacity: .8;
+}
+div.nearby-event-page a:visited {
+  color: white;
+}
+
 div#Basketball {
   background-image: image-url('Basketball.jpg');
 }
@@ -144,3 +152,27 @@ div#Other {
 div#Soccer {
   background-image: image-url('Soccer.jpg');
 }
+div.container {
+  width: 100%
+}
+a.showme.glyphicon.glyphicon-map-marker {
+color: rgba(215, 40, 40, 0.9);
+  font-size: 50px;
+  margin-right: auto;
+  margin-left: auto;
+    margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pinnn {
+  position: absolute;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a.test {
+  background-color: black;
+}
+

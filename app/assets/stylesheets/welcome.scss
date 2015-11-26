@@ -221,4 +221,18 @@ body {
 
 .about-footer {
 }
+body {
+  // background-size: cover;
+  // background-image: image-url('sunsetfield.jpg');
+  // background-position: center center, center top;
+}
+div.alleventsbanner {
+  height: 30%;
+  width: 100%;
+  background-image: image-url('sunsetfield.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center, center top;
+
+}
 
