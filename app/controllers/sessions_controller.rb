@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 				redirect_to events_path
 			else
 				flash[:notice] = "Username or Password was incorrect. Try Again."
-				redirect_to login_path
+				redirect_to root_path
 			end
 		end
 	end
