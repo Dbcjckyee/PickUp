@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-	before_action :current_user 
+	before_action :current_user
 	def index
 	end
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@events = @user.events
+		# @events = @user.events
+		@ownedevents = @user.created_events.order('date asc')
+		@joinedevents = @user.events.order('date asc')
 		@event = Event.current
 
 		if @user && @user == current_user

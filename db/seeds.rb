@@ -20,4 +20,4 @@ Event.create(creator_id: rand(1..4), event_name: "Street Baseball", sport: "Base
 Event.create(creator_id: rand(1..4), event_name: "Practice Golf", sport: "Golf", start: "10:00:00", date: "2015-11-25", participants: 8, location: "Mission Rec San Francisco, CA")
 Event.create(creator_id: rand(1..4), event_name: "Bowling ", sport: "Bowling", start: "10:00:00", date: "2015-11-25", participants: 8, location: "Mission Rec San Francisco, CA")
 Event.create(creator_id: rand(1..4), event_name: "Street Field Hockey", sport: "Field Hockey", start: "10:00:00", date: "2015-11-25", participants: 8, location: "Mission Rec San Francisco, CA")
-Event.create(creator_id: rand(1..4), event_name: "PingPong", sport: "Other", start: "10:00:00", date: "2015-11-25", participants: 8, location: "Mission Rec San Francisco, CA")
+Event.create(creator_id: rand(1..4), event_name: "PingPong", sport: "Misc", start: "10:00:00", date: "2015-11-25", participants: 8, location: "Mission Rec San Francisco, CA")
