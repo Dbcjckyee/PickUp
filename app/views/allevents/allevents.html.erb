@@ -58,7 +58,7 @@
 </tr>
   <%@events.each do |event|%>
     <tr>
-      <td><%=link_to event.event_name, event_path(event)%></td>
+      <td><%=link_to event.event_name.capitalize, event_path(event)%></td>
       <td><%=event.sport%></td>
       <td><%=event.users.size %> / <%= event.participants %> </td>
       <td><%=event.location%></td>

@@ -10,7 +10,7 @@
           <div class="row col-lg-12" >
               <%closeevents.each do |event|%>
                 <div class="col-lg-6" href="event">
-                <p><%=link_to event.event_name, event_path(event)%></p>
+                <p><%=link_to event.event_name.capitalize, event_path(event)%></p>
                 <%=event.sport%>
                 <%= link_to "Show", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
                 <% end %>
