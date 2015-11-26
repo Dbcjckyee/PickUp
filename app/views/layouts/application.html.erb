@@ -53,7 +53,7 @@
           <% else %>
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to "About", 'about' %> </li>
-            <li><%= link_to "Login", 'login' %></li>
+            <li><%= link_to "Login", 'login', class:"logmein" %></li>
             <li><%= link_to "Register", 'signup' %></li>
           <% end %>
         </ul>
@@ -62,11 +62,29 @@
   </nav>
 
   <header>
-    <%if flash[:notice]%> 
+    <%if flash[:notice]%>
       <%= flash[:notice]%>
     <% end %>
   </header>
 
+<div id="login">
+  <div>
+
+
+    <div class="form-group">
+      <h4>Please login<h4>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.email_field :email, :placeholder => "Email", class: "form-control"%><br>
+        <%= f.password_field :password, :placeholder => "Password", class: "form-control"%> <br>
+        <%= f.submit "Log in",  class: "btn btn-success", "style" => "width: 180px"%>
+      <% end %>
+    </div>
+    <div class="social-button"><%= link_to image_tag("facebook.png"), '/auth/facebook'%></div><br>
+    <div class="social-butoon"><%= link_to image_tag("twitter.png"), '/auth/twitter'%></div>
+    <br>
+    <div><a href="" id="cancel">Cancel</a></div>
+  </div>
+</div>
 
 
 
