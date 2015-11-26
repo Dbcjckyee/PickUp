@@ -9,12 +9,14 @@
         <div class="container">
           <div class="row col-lg-10" >
               <%closeevents.each do |event|%>
-                <div class="col-lg-5 event-card" id="<%event.event_name%>" href="event">
-                <p><%=link_to event.event_name, event_path(event)%></p>
-                <%=event.sport%>
-                <%= link_to "Show", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
-                Show
-                <% end %>
+                <div class="col-lg-5 event-card" id="<%=event.sport%>" href="event">
+                  <h2><%=link_to event.event_name, event_path(event)%></h2>
+                  <p class="eventcard">
+                    <%=event.sport%>
+                    <%= link_to "Show", class: "showme", data: {lat: event.latitude, long: event.longitude} do %>
+                    Show
+                  <% end %>
+                  </p>
                 </div>
               <%end%>
           </div>
@@ -22,4 +24,3 @@
       </div>
     </div>
   </div>
-
