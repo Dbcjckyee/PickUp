@@ -19,7 +19,7 @@
 					</thead>
 
 					<tbody>
-						<% @user.created_events.each do |event| %>
+						<% @ownedevents.each do |event| %>
 						<tr>
 							<td><%= event.date.strftime("%A  %m/%d/%Y") %></td>
 							<td><%= link_to event.event_name, event_path(event.id) %></td>
@@ -57,7 +57,7 @@
 					</thead>
 
 					<tbody>
-						<% @user.events.each do |event| %>
+						<% @joinedevents.each do |event| %>
 						<tr>
 							<td><%= event.date.strftime("%A %m/%d/%Y") %></td>
 							<td><%= link_to event.event_name, event_path(event.id) %></td>
