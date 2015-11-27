@@ -27,27 +27,6 @@
 
 
     </div>
-<div class="site-footer">
-  <table  width = "100%" height="100%">
-    <tr>
-      <td class="footer-box">
-        Events near you:
-      </td>
-        <% @events.each do |event| %>
-          <td class="footer-box">
-          <%=link_to event_path(event) do %>
-            <div>
-            <%=event.event_name%>
-            <br>
-            <%=event.location%>
-            <br>
-            <%=event.start.strftime("%I:%M %P ")%>
-            </div>
-          <%end%>
-          </td>
-        <%end%>
-    </tr>
-  </table>
-</div>
+
 
 
