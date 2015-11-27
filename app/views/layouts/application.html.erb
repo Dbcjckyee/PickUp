@@ -60,6 +60,13 @@
 
   <% if current_page?(controller: 'allevents', action:'allevents') %>
     <div class="container-fluid alleventsbanner col-xs-12">
+      <h1> All Events </h1>
+    </div>
+  <%end%>
+
+  <% if current_page?(controller: 'search', action:'index') %>
+    <div class="container-fluid alleventsbanner col-xs-12">
+      <h1>Search Results</h1>
     </div>
   <%end%>
 
