@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 
   scope :current, -> {where("date >= ?", Date.today)}
   validates :event_name, :sport, :start, :location, :date, presence: true
-
+  validates :participants, :numericality => { :greater_than =>0}
 
   def creator
     p self
