@@ -29,7 +29,7 @@
           <div class="panel-heading"><b>Attending: </b></div>
             <ul class="list-group">
               <% @event.users.each do |e| %>
-              <li class="list-group-item"><%= e.first_name.capitalize%> <%= e.last_name[0].capitalize%>. email: <%=e.email%></li>
+              <li class="list-group-item"><%= e.first_name.capitalize%>  email: <%=e.email%></li>
               <% end %>
             </ul>
           </div>
