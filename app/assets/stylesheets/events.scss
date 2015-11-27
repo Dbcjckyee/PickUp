@@ -146,11 +146,17 @@ div#Baseball {
 div#Bowling {
   background-image: image-url('Bowling.jpg');
 }
-div#Other {
-  background-image: image-url('Pingpong.jpg');
+div#Misc {
+  background-image: image-url('sports-equipment.jpg');
 }
 div#Soccer {
   background-image: image-url('Soccer.jpg');
+}
+div#PingPong {
+  background-image: image-url('Pingpong.jpg');
+}
+div#Volleyball {
+  background-image: image-url('Volleyball.jpg');
 }
 div.container {
   width: 100%
