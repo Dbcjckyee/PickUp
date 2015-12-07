@@ -23,7 +23,7 @@
       <div class="page-content">
         <div class="container">
           <div class="row col-lg-12 nearby-event-page" >
-              <%closeevents.each do |event|%>
+              <%@nearevents.each do |event|%>
                 <div class="col-lg-5 event-card" id="<%=event.sport%>" href="event">
                   <h1><%=link_to event.event_name.capitalize, event_path(event)%></h1>
                   <h5 class="eventcard">

@@ -77,8 +77,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
     end
-    # session[:long] = params[:longitude]
-    # session[:lat] = params[:latitude]
   end
 
   def show
