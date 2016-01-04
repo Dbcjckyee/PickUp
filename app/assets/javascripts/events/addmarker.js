@@ -1,6 +1,5 @@
 $(document).ready(function() {
-  var map;
-  initMap();
+  var map = new google.maps.Map(document.getElementById('mappp'), {zoom: 13});
   var marker2 = new google.maps.Marker({map: map});
   $("a.showme").click(function(event){
     event.preventDefault();
@@ -14,12 +13,6 @@ $(document).ready(function() {
   function changeMarkerPosition(tag, lat, lng) {
     var latlng = new google.maps.LatLng(lat, lng);
     tag.setPosition(latlng);
-  }
-
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('mappp'), {
-      zoom: 13,
-    });
   }
 
   navigator.geolocation.getCurrentPosition(function(position){
