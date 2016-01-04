@@ -1,21 +1,23 @@
   <%= javascript_include_tag 'userlogin/addmarker.js'%>
-
   <div id="wrapper">
     <div id="sidebar-wrapper">
-      <div id = "mappp" style="height: 100%;" align="center"></div>
+      <div id = "mappp" style="height: 100%;" align="center">
+      </div>
     </div>
     <div id="page-content-wrapper">
       <div class="row col-lg-12">
         <div class="col-lg-1 text-right">
         </div>
         <div class="col-lg-5 text-left">
-          <div class="event-buttons"><h1>Events near you:</h1></div>
+          <div class="event-buttons"><h1>Events near you:</h1>
+          </div>
         </div>
         <div class="col-lg-3 text-right">
         </div>
         <div class="col-lg-2">
           <div class="event-buttons pull-right"><%= button_to "Create an event", new_event_path, method: "get", class: "" %>
-          <%= button_to "See all events", allevents_path, method: "get", class: "" %></div>
+          <%= button_to "See all events", allevents_path, method: "get", class: "" %>
+          </div>
         </div>
         <div class="col-lg-1 text-right">
         </div>
