@@ -8,7 +8,4 @@ before_action :current_user
     @events = Event.current.basic_search(params[:search][:description])
   end
 
-  def search
-    redirect_to search_path(params)
-  end
 end

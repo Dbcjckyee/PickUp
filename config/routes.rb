@@ -50,8 +50,6 @@ Rails.application.routes.draw do
 
   get 'search/new' => 'search#new'
   get 'search' => 'search#index'
-  post 'search' => 'search#search'
-
 
   # Example resource route with sub-resources:
   #   resources :products do
