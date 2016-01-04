@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :users, :events
 
   get 'allevents' => 'allevents'
-  post 'allevents/update' => 'allevents#update'
+  get 'allevents/update' => 'allevents#update'
 
   post 'events/join/:id', to: 'events#join', as: :join
   put 'events/leave/:id', to: 'events#leave', as: :leave

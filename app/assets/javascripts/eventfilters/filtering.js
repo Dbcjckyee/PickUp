@@ -1,15 +1,18 @@
 $(document).ready(function(){
+  ajaxCall = function(args){
+    $.ajax({
+      data: args,
+      method: "GET",
+      url: '/allevents/update'
+    })
+  }
   $("#sport").change(function(){
     var state = {
       sport: $('select#sport :selected').val(),
       key: "sport"
     };
     $('select').val(0);
-    $.ajax({
-        data: state,
-        method: "POST",
-        url: '/allevents/update'
-    })
+    ajaxCall(state);
   })
 
   $("#location").change(function(){
@@ -21,11 +24,7 @@ $(document).ready(function(){
       long: position.coords.longitude
     };
     $('select').val(0);
-    $.ajax({
-        data: state,
-        method: "POST",
-        url: '/allevents/update'
-      })
+    ajaxCall(state);
     }
     failure = function(position){
       alert("You must share your position to find close events.")
@@ -41,7 +40,7 @@ $(document).ready(function(){
       $('select').val(0);
       $.ajax({
           data: state,
-          method: "POST",
+          method: "GET",
           url: '/allevents/update'
       })
     })
@@ -49,11 +48,10 @@ $(document).ready(function(){
   $("#clear").click(function(event){
     event.preventDefault();
     $('select').val(0);
-      $.ajax({
-      data: {state: "neutral"},
-      method: "POST",
-      url: '/allevents/update'
-    })
+    var state = {
+      state: "neutral"
+    }
+     ajaxCall(state);
   })
 
 

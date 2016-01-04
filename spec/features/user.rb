@@ -11,7 +11,7 @@ describe "User", js: true do
 		before do
 			visit login_path
 		end
-		it "can login" do 
+		it "can login" do
 			fill_in "Email", with: user.email
 			fill_in "Password", with: user.password
 			click_on "Log in"
