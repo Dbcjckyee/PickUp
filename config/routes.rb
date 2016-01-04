@@ -46,8 +46,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   resources :sessions, only: [:new, :create, :destroy]
-  get 'search/new' => 'search#new'
-  get 'search' => 'search#index'
+  resources :search, only: [:new, :index]
+
 
   # Example resource route with sub-resources:
   #   resources :products do
