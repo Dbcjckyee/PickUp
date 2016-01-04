@@ -2,15 +2,12 @@ class EventsController < ApplicationController
   before_action :current_user, :require_user, only: [:index, :show, :new, :edit]
 
   def index
-    @events = Event.current
-    @user = current_user
   end
 
   def join
-    @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
-    unless @event.users.exists?(@new_user)
-      @event.users << @new_user
+    unless @event.users.exists?(current_user)
+      @event.users << current_user
       flash[:notice] = "You have joined this event!"
       UserMailer.event_confirm_email(User.find(current_user.id), @event).deliver_now
       UserMailer.join_notification(@event.creator, @event).deliver_now
@@ -44,7 +41,6 @@ class EventsController < ApplicationController
       @event.destroy
     end
       redirect_to user_path(current_user)
-      #if no one left delete event
   end
 
   def leave
@@ -65,7 +61,6 @@ class EventsController < ApplicationController
     coords = params[:latitude] + ", " + params[:longitude] #takes the longitude and lat from the AJAX call and concatenates them into a string
     @nearevents = Event.current.near(coords, 20, :order => "distance").limit(10) #Runs the coords in Geocoder to find all events within 20(2nd arg) miles. It then sorts them by distance and limits the return array to 10 items. This also passes @nearevents into the function below.
     render :json => {:partial => render_to_string(:partial => 'events/map')}
-
   end
 
   def show
