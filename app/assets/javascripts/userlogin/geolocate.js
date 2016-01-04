@@ -16,6 +16,6 @@ $(document).ready(function() {
   }
   function failure(position){
     $('#nearevents').html("<H4>You must share your location to find nearby events</H4>")
-    }
-  });
+  }
+});
 

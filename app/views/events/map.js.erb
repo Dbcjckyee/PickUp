@@ -1,4 +1,0 @@
-$("<%= escape_javascript(render :partial => 'events/map')%>").appendTo('#nearevents')
-//Takes the events/map partial and passes @nearevents into it as :closeevents. It then appends the partial to the #nearevents div on the event index page. Go to _map.html.erb
- // 12/7 update: the partial can read instance variables from the controller. removed the local variables call.
- // $("<%= escape_javascript(render :partial => 'events/map', :locals => {:closeevents => @nearevents})%>").appendTo('#nearevents')
