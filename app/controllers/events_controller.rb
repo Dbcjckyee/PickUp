@@ -65,6 +65,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @unjoinedevent = @event.users.where(id: current_user.id).length == 0
+    @openevent = @event.users.size < @event.participants
   end
 
   def destroy
