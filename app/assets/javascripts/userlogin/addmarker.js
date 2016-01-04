@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var map;
   initMap();
-  var marker;
   var marker2 = new google.maps.Marker({map: map});
   $("a.showme").click(function(event){
     event.preventDefault();
@@ -25,7 +24,7 @@ $(document).ready(function() {
 
   navigator.geolocation.getCurrentPosition(function(position){
     initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
       map: map,
       position: {lat: position.coords.latitude, lng: position.coords.longitude},
       label: "!"
