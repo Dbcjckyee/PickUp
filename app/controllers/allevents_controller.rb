@@ -6,18 +6,17 @@ class AlleventsController < ApplicationController
   end
 
   def update
-    if params[:key] == "sport"
+    case params[:key]
+    when "sport"
       @eventmatch = Event.current.where(sport: params[:sport]).order('event_name asc')
-    elsif params[:key] == "location"
+    when "location"
       @eventmatch = Event.current.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance") #converts the params into a long/lat sequence and pulls
-    elsif params[:key] == "date"
-    @eventmatch = Event.where(date: eval(params[:date])).order('date asc')
+    when "date"
+      @eventmatch = Event.where(date: eval(params[:date])).order('date asc')
     else
       @eventmatch = Event.current.order('event_name asc')
     end
     @eventmatch
-    respond_to do |filter|
-      filter.js
-    end
+    render :json => {:partial => render_to_string(:partial => 'allevents/resulttable')}
   end
 end

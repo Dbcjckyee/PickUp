@@ -6,6 +6,9 @@ $(document).ready(function(){
       method: "GET",
       url: '/allevents/update'
     })
+    .done(function(page){
+      $('#allevents').html(page['partial'])
+    })
   }
 
   $("#sport").change(function(){
