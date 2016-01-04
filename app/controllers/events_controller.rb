@@ -1,20 +1,12 @@
 class EventsController < ApplicationController
-    before_action :current_user, :require_user, only: [:index, :show, :new, :edit]
-
+  before_action :current_user, :require_user, only: [:index, :show, :new, :edit]
 
   def index
     @events = Event.current
     @user = current_user
-
   end
 
   def join
-    #rails ajax with remote true
-    # respond_to do |x|
-    #   x.js
-    # end
-
-    # p params
     @new_user = User.find(current_user.id)
     @event = Event.find(params[:id])
     unless @event.users.exists?(@new_user)
@@ -64,7 +56,6 @@ class EventsController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
 
   def new
     @event = Event.new
