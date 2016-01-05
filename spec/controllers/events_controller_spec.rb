@@ -4,7 +4,8 @@ require 'spec_helper'
 
 describe EventsController do
   before(:each) do
-    @user = User.create(email: 'test@test.com', password:'testing')
+    @user = User.create(email: 'test@test.com', password:'testing', first_name:"steve")
+    session[:user_id] = @user.id
   end
 
   describe '#index' do
@@ -25,8 +26,6 @@ describe EventsController do
   describe '#create' do
     let(:post_route) {FactoryGirl.create(:event)}
     it 'returns a status of 302' do
-      @user = User.create(email: 'test@test.com', password:'testing', first_name:"steve")
-      session[:user_id] = @user.id
        post :create, { "event" => {"event_name" => "blah", "description" => "This is some blah", "sport" => "blah the sport", "start" => "10:00", "end" => "10:30", "date" => "11/11/2015", "participants" => "3", "location" => "Blahland"}}
       expect(response.status).to eq(302)
     end
