@@ -61,8 +61,8 @@ describe EventsController do
   describe "#update" do
     it 'updates the events attributes' do
       event = FactoryGirl.create(:event)
-      patch :update, {id: event, :event => {"event_name" => "poop"}}
-      expect(event.reload.event_name).to eq("poop")
+      patch :update, {id: event, :event => {"event_name" => "test"}}
+      expect(event.reload.event_name).to eq("test")
     end
   end
 
