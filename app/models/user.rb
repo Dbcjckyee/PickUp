@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth_hash)
     user = find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider'])
+    #will update user's details if there are any social media profile changes
     fullname = auth_hash['info']['name'].split(" ")
     user.first_name = fullname[0]
     if fullname.length > 1

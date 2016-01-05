@@ -31,7 +31,6 @@ class EventsController < ApplicationController
 
   def creator_leave
     @event = Event.find(params[:id])
-    @host = @event.creator
     @new_host = @event.users.last
     @attendees = @event.users.size
     if @attendees > 1
