@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+    #used to change navbar options based on whether a user is logged in
   end
 
   def require_user

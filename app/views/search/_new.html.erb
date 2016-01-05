@@ -1,4 +1,4 @@
-<%=form_for :search, url: search_path do |f|%>
+<%=form_for :search, url: search_index_path, method: 'get' do |f|%>
   <%=f.text_field :description, :placeholder => "Search Events", class: "form-control" %>
   <%=f.submit 'Search',  class: "btn btn-default form-control"%>
 <%end%>

@@ -1,15 +1,10 @@
 class UsersController < ApplicationController
 	before_action :current_user
-	def index
-	end
 
 	def show
 		@user = User.find_by(id: params[:id])
-		# @events = @user.events
 		@ownedevents = @user.created_events.order('date asc')
 		@joinedevents = @user.events.order('date asc')
-		@event = Event.current
-
 		if @user && @user == current_user
 		else
 			flash[:notice] = "Access Denied."
@@ -21,10 +16,6 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
-	def edit
-		@user = User.find_by(id: params[:id])
-	end
-
 	def create
 		@user = User.new(user_params)
 		if @user.save
@@ -32,26 +23,6 @@ class UsersController < ApplicationController
 			UserMailer.welcome_email(@user).deliver_now
 		else
 			flash[:notice] = "Failed to create a new account. Try Again."
-			redirect_to '/'
-		end
-	end
-
-	def update
-		@user = User.find_by(id: params[:id])
-
-		if @user.update(user_params)
-			redirect_to @user
-		else
-			render 'edit'
-		end
-	end
-
-	def destroy
-		@user = User.find_by(id: params[:id])
-		if @user
-			@user.destroy
-			redirect_to '/'
-		else
 			redirect_to '/'
 		end
 	end

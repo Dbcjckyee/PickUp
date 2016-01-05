@@ -6,12 +6,10 @@
   background-color: rgba(65, 20, 165, 0.3)
 }
 
-
 .table-responsive {
 	background-color: grey;
 	width: 300px;
 	line-height: 1cm;
-
 }
 
 .event-buttons {
@@ -31,7 +29,6 @@ table {
 	line-height: 20px;
 }
 
-
 .new_event {
 	border: 2px solid black;
 	padding: 30px;
@@ -40,8 +37,6 @@ table {
 .new-event-container {
 	width: 350px;
 }
-
-
 
 #wrapper {
   padding-left: 45%;
@@ -52,7 +47,6 @@ table {
   margin-left: -45%;
   left: 45%;
   width: 45%;
-  // background: yellow;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -75,29 +69,27 @@ table {
 }
 
 @media (max-width:767px) {
-
     #wrapper {
       padding-left: 0;
     }
-
     #sidebar-wrapper {
       left: 0;
     }
-
     #wrapper.active {
       position: relative;
       left: 250px;
     }
-
     #wrapper.active #sidebar-wrapper {
       left: 250px;
       width: 250px;
       transition: all 0.4s ease 0s;
     }
 }
+
 body {
   padding-top: 50px;
 }
+
 div.event-card a {
   margin-left: 0;
   margin-right: 0;
@@ -117,16 +109,16 @@ div.event-card {
   opacity: .9;
   text-size: 100px;
   color: white;
-  // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  // -webkit-text-stroke-width: 1px;
-  // -webkit-text-stroke-color: black;
 }
+
 div.nearby-event-page a:link {
   color: white;
 }
+
 div.nearby-event-page a:hover{
   opacity: .8;
 }
+
 div.nearby-event-page a:visited {
   color: white;
 }
@@ -134,36 +126,47 @@ div.nearby-event-page a:visited {
 div#Basketball {
   background-image: image-url('Basketball.jpg');
 }
+
 div#Football {
   background-image: image-url('football.jpeg');
 }
+
 div#Tennis {
   background-image: image-url('tennis_2.jpg');
 }
+
 div#Golf {
   background-image: image-url('Golf.jpg');
 }
+
 div#Baseball {
   background-image: image-url('Baseball.jpg');
 }
+
 div#Bowling {
   background-image: image-url('Bowling.jpg');
 }
+
 div#Misc {
   background-image: image-url('Sports-Equipment.jpg');
 }
+
 div#Soccer {
   background-image: image-url('Soccer.jpg');
 }
+
 div#PingPong {
   background-image: image-url('Pingpong.jpg');
 }
+
 div#Volleyball {
   background-image: image-url('Volleyball.jpg');
 }
+
 div.container {
   width: 100%
 }
+
 a.showme.glyphicon.glyphicon-map-marker {
 color: rgba(215, 40, 40, 0.9);
   font-size: 50px;
@@ -174,6 +177,7 @@ color: rgba(215, 40, 40, 0.9);
   margin-left: auto;
   margin-right: auto;
 }
+
 .pinnn {
   position: absolute;
   bottom: 0;

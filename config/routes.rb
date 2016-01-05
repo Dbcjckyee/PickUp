@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  post 'events/map' => 'events#map'
+  get 'events/map' => 'events#map'
   get '/auth/twitter/callback', to: 'sessions#create'
   get '/auth/facebook/callback', to: 'sessions#create'
   # get '/auth/twitter/callback?denied*', to: 'welcome#index'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :users, :events
 
   get 'allevents' => 'allevents'
-  post 'allevents/update' => 'allevents#update'
+  get 'allevents/update' => 'allevents#update'
 
   post 'events/join/:id', to: 'events#join', as: :join
   put 'events/leave/:id', to: 'events#leave', as: :leave
@@ -45,12 +45,8 @@ Rails.application.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
-
-  get 'search/new' => 'search#new'
-  get 'search' => 'search#index'
-  post 'search' => 'search#search'
+  resources :search, only: [:new, :index]
 
 
   # Example resource route with sub-resources:

@@ -1,7 +1,3 @@
-<!-- <p>Event search results</p> -->
-
-<div >
-</div>
 <table class="search-results table table-striped table-responsive">
   <tr>
     <th class="item col-xs-2 centercolumn">Event name</th>
@@ -12,21 +8,11 @@
   </tr>
   <%@events.each do |event|%>
   <tr>
-    <td class='centercolumn'>
-    <%=link_to event.event_name.capitalize, event_path(event)%>
-    </td>
-    <td class='centercolumn'>
-    <%=event.sport%>
-    </td>
-    <td class='centercolumn'>
-    <%=event.location.upcase%>
-    </td>
-    <td class='centercolumn'>
-     <%=event.date.strftime("%A %m/%d/%Y")%>
-    </td>
-    <td class='centercolumn'>
-    <%=event.start.strftime("%I:%M %P ")%>
-    </td>
+    <td class='centercolumn'><%=link_to event.event_name.capitalize, event_path(event)%></td>
+    <td class='centercolumn'><%=event.sport%></td>
+    <td class='centercolumn'><%=event.location.upcase%></td>
+    <td class='centercolumn'><%=event.date.strftime("%A %m/%d/%Y")%></td>
+    <td class='centercolumn'><%=event.start.strftime("%I:%M %P ")%></td>
   </tr>
   <%end%>
 </table>
