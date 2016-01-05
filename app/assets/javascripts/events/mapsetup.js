@@ -1,14 +1,6 @@
 $(document).ready(function() {
   var map = new google.maps.Map(document.getElementById('mappp'), {zoom: 13});
   var marker2 = new google.maps.Marker({map: map});
-  $("a.showme").click(function(event){
-    event.preventDefault();
-    var lat = $(this).data('lat');
-    var long = $(this).data('long');
-    changeMarkerPosition(marker2, lat, long)
-    map.setZoom(16);
-    map.setCenter(new google.maps.LatLng(lat, long))
-  });
 
   function changeMarkerPosition(tag, lat, lng) {
     var latlng = new google.maps.LatLng(lat, lng);
@@ -23,6 +15,15 @@ $(document).ready(function() {
       label: "!"
     });
     map.setCenter(initialLocation)
+  });
+
+  $("a.showme").click(function(event){
+    event.preventDefault();
+    var lat = $(this).data('lat');
+    var long = $(this).data('long');
+    changeMarkerPosition(marker2, lat, long)
+    map.setZoom(16);
+    map.setCenter(new google.maps.LatLng(lat, long))
   });
 
 });

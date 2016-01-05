@@ -3,7 +3,7 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( events/geolocate.js )
-Rails.application.config.assets.precompile += %w( events/addmarker.js )
+Rails.application.config.assets.precompile += %w( events/mapsetup.js )
 
 Rails.application.config.assets.precompile += %w( eventfilters/filtering.js )
 Rails.application.config.assets.precompile += %w( events/map.js )
