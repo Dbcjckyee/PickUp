@@ -70,7 +70,7 @@
               <% end %>
             </ul>
         </div>
-          <%if @unjoinedevent %>
+          <%if @alreadyjoined %>
             <%if @openevent %>
               <td class="col-md-1" id='index_join'>
                 <%= button_to "Join", join_path(id: @event.id), id: "index_join_button"%>

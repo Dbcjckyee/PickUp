@@ -24,7 +24,6 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:notice] = @event.errors.full_messages
-      p @event.errors
       redirect_to new_event_path
     end
   end
@@ -64,7 +63,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @unjoinedevent = @event.users.where(id: current_user.id).length == 0
+    @alreadyjoined = @event.users.where(id: current_user.id).length == 0
     @openevent = @event.users.size < @event.participants
   end
 
