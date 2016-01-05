@@ -8,7 +8,7 @@
 			<p> <%= f.text_field :first_name, :placeholder => "First Name", class: "form-control" %></p>
 			<p> <%= f.text_field :last_name, :placeholder => "Last Name", class: "form-control" %></p>
 			<p> <%= f.email_field :email, :placeholder => "Email" , class: "form-control"%></p>
-			<p> <%= f.password_field :password, :placeholder => "Password" , class: "form-control"%></p>
+			<p> <%= f.password_field :password, :placeholder => "Password at least 6 chars." , class: "form-control"%></p>
 			<p> <%= f.submit "Sign up", class: "btn btn-success" %></p>
   	<% end %>
 	<div >
