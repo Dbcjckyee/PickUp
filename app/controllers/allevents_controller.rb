@@ -16,7 +16,6 @@ class AlleventsController < ApplicationController
     else
       @eventmatch = Event.current.order('event_name asc')
     end
-    @eventmatch
     render :json => {:partial => render_to_string(:partial => 'allevents/resulttable')}
   end
 end
