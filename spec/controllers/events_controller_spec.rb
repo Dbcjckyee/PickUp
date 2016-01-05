@@ -26,7 +26,7 @@ describe EventsController do
   describe '#create' do
     let(:post_route) {FactoryGirl.create(:event)}
     it 'returns a status of 302' do
-       post :create, { "event" => {"event_name" => "blah", "description" => "This is some blah", "sport" => "blah the sport", "start" => "10:00", "end" => "10:30", "date" => "11/11/2015", "participants" => "3", "location" => "Blahland"}}
+       post :create, { "event" => {"event_name" => "blah", "description" => "This is some blah", "sport" => "blah the sport", "start" => "2000-01-01 22:44:00", "end" => "2000-01-01 22:45:00", "date" => "11/11/2015", "participants" => "3", "location" => "Blahland"}}
       expect(response.status).to eq(302)
     end
 

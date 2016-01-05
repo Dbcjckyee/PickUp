@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   end
 
   def start_before_end
-    if self.end < start
+    if self.end && self.end < start
       errors.add(:start, "Invalid end time")
     end
   end
