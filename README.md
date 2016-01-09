@@ -6,7 +6,7 @@ This is a Rails app that allows people to manage pick up, a.k.a. on-the-go, spor
 
 # Demo
 
-An online demo is available at http://afternoon-garden-4266.herokuapp.com/
+An online demo is available at http://pickuptheapp.herokuapp.com/
 
 # Features
 
