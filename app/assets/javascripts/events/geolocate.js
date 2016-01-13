@@ -8,7 +8,7 @@ $(document).ready(function() {
     $.ajax({
       data: coords,
       method: "GET",
-      url: '/events/map'
+      url: '/events'
     })
     .done(function(page){
       $('#nearevents').append(page['partial'])

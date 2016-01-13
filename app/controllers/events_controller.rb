@@ -2,6 +2,11 @@ class EventsController < ApplicationController
   before_action :current_user, :require_user, only: [:index, :show, :new, :edit, :filter]
 
   def index
+    if request.xhr?
+      coords = params[:latitude] + ", " + params[:longitude] #takes the longitude and lat from the AJAX call and concatenates them into a string
+      @nearevents = Event.current.near(coords, 20, :order => "distance").limit(10) #Runs the coords in Geocoder to find all events within 20(2nd arg) miles. It then sorts them by distance and limits the return array to 10 items. This also passes @nearevents into the function below.
+      render :json => {:partial => render_to_string(:partial => 'events/nearevents')}
+    end
   end
 
   def join
@@ -53,12 +58,6 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-  end
-
-  def map
-    coords = params[:latitude] + ", " + params[:longitude] #takes the longitude and lat from the AJAX call and concatenates them into a string
-    @nearevents = Event.current.near(coords, 20, :order => "distance").limit(10) #Runs the coords in Geocoder to find all events within 20(2nd arg) miles. It then sorts them by distance and limits the return array to 10 items. This also passes @nearevents into the function below.
-    render :json => {:partial => render_to_string(:partial => 'events/map')}
   end
 
   def show
