@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  get 'events/map' => 'events#map'
   get '/auth/twitter/callback', to: 'sessions#create'
   get '/auth/facebook/callback', to: 'sessions#create'
   # get '/auth/twitter/callback?denied*', to: 'welcome#index'
