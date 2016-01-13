@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   # get '/auth/twitter/callback?denied*', to: 'welcome#index'
 
   get 'about' => 'welcome#about'
-  get 'signup' => 'users#new'
   get 'events/filter' => 'events#filter'
   resources :users, :events
 
@@ -42,8 +41,7 @@ Rails.application.routes.draw do
   put 'events/leave/:id', to: 'events#leave', as: :leave
   put 'events/creator_leave/:id', to: 'events#creator_leave', as: :creator_leave
 
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :search, only: [:new, :index]
 

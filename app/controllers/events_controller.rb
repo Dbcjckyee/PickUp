@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :current_user, :require_user, only: [:index, :show, :new, :edit]
+  before_action :current_user, :require_user, only: [:index, :show, :new, :edit, :filter]
 
   def index
   end
