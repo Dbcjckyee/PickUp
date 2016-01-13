@@ -81,6 +81,42 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def filter
+    if request.xhr?
+      case params[:key]
+      when "sport"
+        @eventmatch = Event.current.where(sport: params[:sport]).order('event_name asc')
+      when "location"
+        @eventmatch = Event.current.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance") #converts the params into a long/lat sequence and pulls
+      when "date"
+        @eventmatch = Event.where(date: eval(params[:date])).order('date asc')
+      else
+        @eventmatch = Event.current.order('event_name asc')
+      end
+      render :json => {:partial => render_to_string(:partial => 'events/filterresults')}
+    else
+      @events = Event.current.order('event_name asc')
+    end
+  end
+
+  # def update
+  #   case params[:key]
+  #   when "sport"
+  #     @eventmatch = Event.current.where(sport: params[:sport]).order('event_name asc')
+  #   when "location"
+  #     @eventmatch = Event.current.near("#{params[:lat]} , #{params[:long]}", (params[:location].to_i), :order => "distance") #converts the params into a long/lat sequence and pulls
+  #   when "date"
+  #     @eventmatch = Event.where(date: eval(params[:date])).order('date asc')
+  #   else
+  #     @eventmatch = Event.current.order('event_name asc')
+  #   end
+  #   if request.xhr?
+  #     render :json => {:partial => render_to_string(:partial => 'allevents/resulttable')}
+  #   else
+  #     redirect_to allevents_path
+  #   end
+  # end
+
   private
     def event_params
       params.require(:event).permit(:event_name, :description, :sport, :start, :end, :date, :participants, :location)
