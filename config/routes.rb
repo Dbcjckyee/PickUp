@@ -33,14 +33,10 @@ Rails.application.routes.draw do
 
   get 'about' => 'welcome#about'
   get 'events/filter' => 'events#filter'
-  resources :users, :events
-
-
+  resources :users, :events, :rsvps
   post 'events/join/:id', to: 'events#join', as: :join
   put 'events/leave/:id', to: 'events#leave', as: :leave
   put 'events/creator_leave/:id', to: 'events#creator_leave', as: :creator_leave
-
-
   resources :sessions, only: [:new, :create, :destroy]
   resources :search, only: [:new, :index]
 
