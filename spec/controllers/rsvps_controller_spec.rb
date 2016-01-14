@@ -20,12 +20,12 @@ describe RsvpsController do
     end
   end
 
-  # describe 'rsvps#destroy' do
-  #   it 'gives the longest lasting guest host duties when original host leaves' do
-  #     session[:user_id] = @user1.id
-  #     delete :destroy, :id => @event1.id
-  #     @event1.creator_id.should eq(@user2.id)
-  #   end
-  # end
+  describe 'rsvps#destroy' do
+    it 'deletes a user from the event when the users rsvp is deleted' do
+      session[:user_id] = @user1.id
+      delete :destroy, :id => @event1.id
+      @event1.users.count.should eq(2)
+    end
+  end
 
 end
