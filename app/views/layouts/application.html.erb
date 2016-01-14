@@ -44,7 +44,7 @@
           <% else %>
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to "About", about_path %></li>
-            <li><%= link_to "Login", login_path, class:"logmein" %></li>
+            <li><%= link_to "Login", new_session_path, class:"logmein" %></li>
             <li><%= link_to "Register", new_user_path %></li>
           <% end %>
         </ul>
@@ -52,7 +52,7 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <% if current_page?(controller: 'allevents', action:'allevents') %>
+  <% if current_page?(controller: 'events', action:'filter') %>
     <div class="container-fluid alleventsbanner col-xs-12">
       <h1> All Events </h1>
     </div>
@@ -74,7 +74,7 @@
     <div>
       <div class="form-group">
         <h4>Please login<h4>
-        <%= form_for(:session, url: login_path) do |f| %>
+        <%= form_for(:session, url: sessions_path, method: :post) do |f| %>
           <%= f.email_field :email, :placeholder => "Email", class: "form-control"%><br>
           <%= f.password_field :password, :placeholder => "Password", class: "form-control"%> <br>
           <%= f.submit "Log in",  class: "btn btn-success", "style" => "width: 180px"%>

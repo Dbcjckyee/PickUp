@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
   validates :password, presence: true, length: { minimum: 6 }
 	has_secure_password
-	has_and_belongs_to_many :events
+  has_many :rsvps
+  has_many :events, :through => :rsvps
 
   def created_events
     Event.where(creator_id: self.id)

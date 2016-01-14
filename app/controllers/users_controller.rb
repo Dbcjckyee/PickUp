@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
-		@ownedevents = @user.created_events.order('date asc')
-		@joinedevents = @user.events.order('date asc')
+		@ownedevents = @user.created_events.current.order('date asc')
+		@joinedevents = @user.events.current.order('date asc')
 		if @user && @user == current_user
 		else
 			flash[:notice] = "Access Denied."

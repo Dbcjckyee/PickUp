@@ -6,7 +6,7 @@ Rails.application.config.assets.precompile += %w( events/geolocate.js )
 Rails.application.config.assets.precompile += %w( events/mapsetup.js )
 
 Rails.application.config.assets.precompile += %w( eventfilters/filtering.js )
-Rails.application.config.assets.precompile += %w( events/map.js )
+Rails.application.config.assets.precompile += %w( events/showevent.js )
 
 Rails.application.config.assets.precompile += %w( join_event/join_button.js )
 

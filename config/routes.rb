@@ -27,24 +27,13 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  get 'events/map' => 'events#map'
   get '/auth/twitter/callback', to: 'sessions#create'
   get '/auth/facebook/callback', to: 'sessions#create'
   # get '/auth/twitter/callback?denied*', to: 'welcome#index'
 
   get 'about' => 'welcome#about'
-  get 'signup' => 'users#new'
-  resources :users, :events
-
-  get 'allevents' => 'allevents'
-  get 'allevents/update' => 'allevents#update'
-
-  post 'events/join/:id', to: 'events#join', as: :join
-  put 'events/leave/:id', to: 'events#leave', as: :leave
-  put 'events/creator_leave/:id', to: 'events#creator_leave', as: :creator_leave
-
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+  get 'events/filter' => 'events#filter'
+  resources :users, :events, :rsvps
   resources :sessions, only: [:new, :create, :destroy]
   resources :search, only: [:new, :index]
 

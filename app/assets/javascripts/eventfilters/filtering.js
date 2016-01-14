@@ -4,7 +4,7 @@ $(document).ready(function(){
     $.ajax({
       data: args,
       method: "GET",
-      url: '/allevents/update'
+      url: '/events/filter'
     })
     .done(function(page){
       $('#allevents').html(page['partial'])
@@ -20,6 +20,7 @@ $(document).ready(function(){
   })
 
   $("#location").change(function(){
+    $('#allevents').html('Now calculating distance...')
     success = function(position){
       var state = {
         location: $('select#location :selected').val(),
