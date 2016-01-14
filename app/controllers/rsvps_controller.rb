@@ -19,9 +19,14 @@ class RsvpsController < ApplicationController
     tbd = Rsvp.where(event_id: params[:id], user_id: current_user.id)
     Rsvp.delete(tbd)
     if @event.creator_id == current_user.id
-      creator_leave
-    else
-      redirect_to user_path(current_user)
+      @attendees = @event.users.size
+      if @attendees >= 1
+        new_host = Rsvp.where(event_id:params[:id]).order('created_at ASC')[0].user_id
+        @event.update_attribute(:creator_id, new_host)
+      else
+        @event.destroy
+      end
     end
+    redirect_to user_path(current_user)
   end
 end
