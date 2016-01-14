@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @event.creator_id = current_user.id
     if @event.save
       UserMailer.event_creation_email(User.find(current_user.id), @event).deliver_now
-      @event.users << User.find(current_user.id)
+      Rsvp.create(event_id: @event.id, user_id: @event.creator_id)
       redirect_to events_path
     else
       flash[:notice] = @event.errors.full_messages

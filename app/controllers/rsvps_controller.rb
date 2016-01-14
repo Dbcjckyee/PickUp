@@ -4,6 +4,7 @@ class RsvpsController < ApplicationController
 
   def create
     @event = Event.find(params[:id])
+    Rsvp.create(user_id: current_user.id, event_id: params[:id])
     unless @event.users.exists?(current_user)
       @event.users << current_user
       flash[:notice] = "You have joined this event!"
@@ -15,10 +16,11 @@ class RsvpsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+    tbd = Rsvp.where(event_id: params[:id], user_id: current_user.id)
+    Rsvp.delete(tbd)
     if @event.creator_id == current_user.id
       creator_leave
     else
-      @event.users.destroy(User.find(current_user.id))
       redirect_to user_path(current_user)
     end
   end
