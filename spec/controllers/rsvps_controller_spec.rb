@@ -26,6 +26,13 @@ describe RsvpsController do
       delete :destroy, :id => @event1.id
       @event1.users.count.should eq(2)
     end
+
+    it 'gives the most senior guest host rights when host leaves' do
+      session[:user_id] = @user1.id
+      delete :destroy, :id => @event1.id
+      @event1.reload.creator_id.should eq(@user2.id)
+    end
+
   end
 
 end
