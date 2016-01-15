@@ -28,6 +28,13 @@ Clone this repo onto your desktop and run `bundle install` to retrieve the neces
   git clone https://github.com/Juxtaposeidon/PickUp.git
   bundle install
   ```
+  
+After installing the gems, you need to build out the database and migrations.
+
+  ```
+  rake db:create
+  rake db:migrate
+  ```
 
 # Usage
 
