@@ -12,11 +12,13 @@ An online demo is available at http://pickuptheapp.herokuapp.com/
 
 * Users can track and maintain their meetups from a dashboard.
 
-* Users can search and filter through events by location, text, and sport.
+* Users can filter through events by location, date, and sport.
+
+* Searches through all available events by text.
 
 * Displays event locations on interactive Google Maps.
 
-* Maintains all meetup-related communications with the Rails's Action Mailer.
+* Maintains all meetup-related communications with Rails's Action Mailer.
 
 * Allows OAuth sign-ins through Facebook and Twitter.
 
